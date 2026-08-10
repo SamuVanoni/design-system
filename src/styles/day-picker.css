@@ -1,0 +1,165 @@
+/* ============================================================
+   react-day-picker — estilos integrados aos tokens do DS.
+   Baseado na estrutura v9. Importar UMA vez no entrypoint da app,
+   depois do variables.css.
+   ============================================================ */
+
+.rdp-root {
+  --rdp-cell-size: 2.25rem;
+  --rdp-accent-color: var(--color-primary-500);
+  --rdp-accent-background-color: color-mix(in srgb, var(--color-primary-500) 20%, transparent);
+  --rdp-background-color: transparent;
+  --rdp-day-hover-background: var(--surface-elevated);
+  --rdp-outline: 2px solid var(--color-primary-500);
+  --rdp-outline-selected: 2px solid var(--color-primary-500);
+
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  padding: 0.5rem;
+}
+
+.rdp-months { display: flex; gap: 1rem; }
+.rdp-month { padding: 0; }
+
+.rdp-month_caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 0.5rem 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.rdp-nav {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  gap: 0.25rem;
+}
+.rdp-month_caption + .rdp-nav,
+.rdp-month:has(.rdp-nav) { position: relative; }
+
+.rdp-button_previous, .rdp-button_next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.375rem;
+  color: var(--text-tertiary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--easing-standard),
+              color var(--duration-fast) var(--easing-standard);
+}
+.rdp-button_previous:hover, .rdp-button_next:hover {
+  background: var(--surface-elevated);
+  color: var(--text-primary);
+}
+.rdp-button_previous:focus-visible, .rdp-button_next:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+.rdp-weekdays { display: flex; }
+.rdp-weekday {
+  width: var(--rdp-cell-size);
+  height: var(--rdp-cell-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.rdp-weeks { display: block; }
+.rdp-week { display: flex; }
+
+.rdp-day {
+  width: var(--rdp-cell-size);
+  height: var(--rdp-cell-size);
+  padding: 0;
+  text-align: center;
+}
+
+.rdp-day_button {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  background: transparent;
+  color: var(--text-secondary);
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color var(--duration-fast) var(--easing-standard),
+              color var(--duration-fast) var(--easing-standard);
+}
+.rdp-day_button:hover:not(:disabled) {
+  background: var(--surface-elevated);
+  color: var(--text-primary);
+}
+.rdp-day_button:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: -2px;
+}
+
+.rdp-day.rdp-today .rdp-day_button {
+  color: var(--color-primary-500);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+/* Light mode: primary-500 no branco tem contraste insuficiente (2.85 < 4.5 AA).
+   Usa primary-700 (#B34509) que fica em 5.62 sobre branco. */
+:root[data-theme='light'] .rdp-day.rdp-today .rdp-day_button {
+  color: var(--color-primary-700);
+}
+
+.rdp-day.rdp-outside .rdp-day_button {
+  color: var(--text-disabled);
+}
+
+.rdp-day.rdp-disabled .rdp-day_button {
+  color: var(--text-disabled);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Selecionado (single) */
+.rdp-day.rdp-selected .rdp-day_button {
+  background: var(--color-primary-500) !important;
+  color: var(--text-on-primary) !important;
+  font-weight: 600;
+}
+.rdp-day.rdp-selected .rdp-day_button:hover {
+  background: var(--color-primary-400) !important;
+}
+
+/* Range: middle */
+.rdp-day.rdp-range_middle .rdp-day_button {
+  background: var(--rdp-accent-background-color);
+  color: var(--text-primary);
+  border-radius: 0;
+}
+
+/* Range: endpoints */
+.rdp-day.rdp-range_start .rdp-day_button,
+.rdp-day.rdp-range_end .rdp-day_button {
+  background: var(--color-primary-500);
+  color: var(--text-on-primary);
+  font-weight: 600;
+}
+.rdp-day.rdp-range_start .rdp-day_button { border-radius: 0.375rem 0 0 0.375rem; }
+.rdp-day.rdp-range_end   .rdp-day_button { border-radius: 0 0.375rem 0.375rem 0; }
+.rdp-day.rdp-range_start.rdp-range_end .rdp-day_button { border-radius: 0.375rem; }

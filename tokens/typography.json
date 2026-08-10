@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "name": "SaaS B2B Design System - Typography",
+    "version": "0.1.0"
+  },
+  "fontFamily": {
+    "sans": "'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
+    "mono": "'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace"
+  },
+  "fontWeight": {
+    "regular":  400,
+    "medium":   500,
+    "semibold": 600,
+    "bold":     700,
+    "extrabold": 800
+  },
+  "lineHeight": {
+    "tight":   1.15,
+    "snug":    1.3,
+    "normal":  1.5,
+    "relaxed": 1.65
+  },
+  "letterSpacing": {
+    "tight":  "-0.02em",
+    "normal": "0",
+    "wide":   "0.02em"
+  },
+  "scale": {
+    "h1": {
+      "fontSize": "2.5rem",
+      "lineHeight": 1.15,
+      "fontWeight": 700,
+      "letterSpacing": "-0.02em",
+      "usage": "Títulos principais de página. Um por tela."
+    },
+    "h2": {
+      "fontSize": "2rem",
+      "lineHeight": 1.2,
+      "fontWeight": 700,
+      "letterSpacing": "-0.01em",
+      "usage": "Cabeçalhos de seção."
+    },
+    "h3": {
+      "fontSize": "1.5rem",
+      "lineHeight": 1.25,
+      "fontWeight": 600,
+      "letterSpacing": "-0.01em",
+      "usage": "Subseções, títulos de card."
+    },
+    "subtitle": {
+      "fontSize": "1.125rem",
+      "lineHeight": 1.4,
+      "fontWeight": 500,
+      "letterSpacing": "0",
+      "usage": "Texto de apoio para títulos, descrições curtas."
+    },
+    "body": {
+      "regular": {
+        "fontSize": "1rem",
+        "lineHeight": 1.5,
+        "fontWeight": 400,
+        "usage": "Texto padrão de leitura."
+      },
+      "medium": {
+        "fontSize": "1rem",
+        "lineHeight": 1.5,
+        "fontWeight": 500,
+        "usage": "Ênfase leve, labels de formulário."
+      },
+      "bold": {
+        "fontSize": "1rem",
+        "lineHeight": 1.5,
+        "fontWeight": 700,
+        "usage": "Destaque forte inline."
+      }
+    },
+    "caption": {
+      "fontSize": "0.75rem",
+      "lineHeight": 1.4,
+      "fontWeight": 400,
+      "letterSpacing": "0.02em",
+      "usage": "Metadados, helper text, timestamps."
+    }
+  }
+}

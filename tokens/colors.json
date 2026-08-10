@@ -1,0 +1,112 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "meta": {
+    "name": "SaaS B2B Design System - Colors",
+    "modes": ["dark", "light"],
+    "version": "0.2.0"
+  },
+  "primary": {
+    "description": "Cobre - CTAs principais, marca. Mesma escala em ambos os temas. 500 valida AA (5.08:1) contra text-onPrimary #111827.",
+    "50":  "#FCF4EC",
+    "100": "#F7E4CE",
+    "200": "#EDC79E",
+    "300": "#DFA76D",
+    "400": "#D08E4C",
+    "500": "#C1783A",
+    "600": "#A3612C",
+    "700": "#7F4A20",
+    "800": "#5B3416",
+    "900": "#38200D",
+    "base": "#C1783A"
+  },
+  "secondary": {
+    "description": "Cobre oxidado (verdigris/pátina) - ações alternativas e links. 500 valida AA (5.31:1) contra text-onSecondary #111827.",
+    "50":  "#ECF9F6",
+    "100": "#CFF0E9",
+    "200": "#A0E0D3",
+    "300": "#6CCBBA",
+    "400": "#48B4A1",
+    "500": "#359C8B",
+    "600": "#2A7F71",
+    "700": "#21645A",
+    "800": "#194B44",
+    "900": "#11332E",
+    "base": "#359C8B"
+  },
+  "neutral": {
+    "0":   "#FFFFFF",
+    "50":  "#F9FAFB",
+    "100": "#F3F4F6",
+    "200": "#E5E7EB",
+    "300": "#D1D5DB",
+    "400": "#9CA3AF",
+    "500": "#6B7280",
+    "600": "#4B5563",
+    "700": "#374151",
+    "800": "#1F2937",
+    "900": "#111827",
+    "950": "#030712"
+  },
+  "feedback": {
+    "error":   { "base": "#EF4444", "soft-dark": "#7F1D1D", "soft-light": "#FEE2E2" },
+    "success": { "base": "#22C55E", "soft-dark": "#14532D", "soft-light": "#DCFCE7" },
+    "warning": { "base": "#F59E0B", "soft-dark": "#78350F", "soft-light": "#FEF3C7" },
+    "info":    { "base": "#3B82F6", "soft-dark": "#1E3A8A", "soft-light": "#DBEAFE" }
+  },
+  "semantic": {
+    "dark": {
+      "surface": {
+        "base":     "#111827",
+        "elevated": "#1F2937",
+        "overlay":  "#374151",
+        "muted":       "rgba(255, 255, 255, 0.06)",
+        "mutedHover":  "rgba(255, 255, 255, 0.10)"
+      },
+      "border": {
+        "subtle":  "#1F2937",
+        "default": "#374151",
+        "strong":  "#4B5563",
+        "focus":   "#C1783A"
+      },
+      "text": {
+        "primary":     "#F9FAFB",
+        "secondary":   "#D1D5DB",
+        "tertiary":    "#9CA3AF",
+        "disabled":    "#6B7280",
+        "inverse":     "#111827",
+        "onPrimary":   "#111827",
+        "onSecondary": "#111827",
+        "link":        "#48B4A1",
+        "linkHover":   "#6CCBBA"
+      },
+      "backdrop": "rgba(0, 0, 0, 0.6)"
+    },
+    "light": {
+      "surface": {
+        "base":     "#F9FAFB",
+        "elevated": "#FFFFFF",
+        "overlay":  "#FFFFFF",
+        "muted":       "rgba(17, 24, 39, 0.05)",
+        "mutedHover":  "rgba(17, 24, 39, 0.09)"
+      },
+      "border": {
+        "subtle":  "#F3F4F6",
+        "default": "#E5E7EB",
+        "strong":  "#D1D5DB",
+        "focus":   "#C1783A"
+      },
+      "text": {
+        "primary":     "#111827",
+        "secondary":   "#374151",
+        "tertiary":    "#6B7280",
+        "disabled":    "#9CA3AF",
+        "inverse":     "#F9FAFB",
+        "onPrimary":   "#111827",
+        "onSecondary": "#111827",
+        "link":        "#21645A",
+        "linkHover":   "#194B44"
+      },
+      "backdrop": "rgba(17, 24, 39, 0.5)"
+    }
+  }
+}
