@@ -3,6 +3,7 @@ import * as Popover from '@radix-ui/react-popover';
 import { DayPicker, DateRange } from 'react-day-picker';
 import { ptBR } from 'date-fns/locale';
 import { format, subDays, startOfMonth, endOfMonth, subMonths, startOfYear } from 'date-fns';
+import type { Locale } from 'date-fns';
 import { Calendar as CalendarIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '../lib/cn';
 import { useField } from './Field';

@@ -1,6 +1,43 @@
 {
+  "name": "@samuvanoni/design-system",
+  "version": "0.1.0",
+  "description": "Design system React para SaaS B2B — dark/light via data-theme, tokens semânticos.",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamuVanoni/design-system.git"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist",
+    "src",
+    "tokens",
+    "tailwind.preset.cjs",
+    "COMPONENTS.md",
+    "README.md",
+    "CLAUDE.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    },
+    "./tailwind-preset": "./tailwind.preset.cjs",
+    "./styles/variables.css": "./src/styles/variables.css",
+    "./styles/day-picker.css": "./src/styles/day-picker.css",
+    "./tokens/*": "./tokens/*",
+    "./package.json": "./package.json"
+  },
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build --config vite.lib.config.ts && tsc -p tsconfig.build.json",
+    "prepare": "npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.19",
@@ -20,15 +57,16 @@
     "cmdk": "^1.1.1",
     "date-fns": "^4.4.0",
     "lucide-react": "^1.25.0",
-    "react": "^19.2.7",
     "react-day-picker": "^10.0.1",
-    "react-dom": "^19.2.7"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.0.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "vite": "^7.0.0"

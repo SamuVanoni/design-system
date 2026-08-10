@@ -29,7 +29,8 @@ function CardRoot({ className, interactive, ...rest }: CardProps) {
   );
 }
 
-interface CardHeaderProps extends HTMLAttributes<HTMLDivElement> {
+// Omit do `title` nativo: o do DOM e string, aqui aceita ReactNode.
+interface CardHeaderProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
   title?: ReactNode;
   description?: ReactNode;
   action?: ReactNode;

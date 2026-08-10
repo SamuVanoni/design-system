@@ -6,6 +6,84 @@ Cobertura atual: **Foundations** (cores, tipografia, espaçamento, temas) + **Á
 
 ---
 
+## Consumindo num SaaS
+
+Este repositório é o **cookbook**: os SaaS instalam ele como pacote, não copiam os componentes. Corrigiu um bug no `Button`? Sobe uma tag e todo mundo herda.
+
+### 1. Instalar
+
+```bash
+npm i github:SamuVanoni/design-system#v0.1.0
+```
+
+Sempre fixe a tag. Sem ela o npm pega o `main` e um commit no meio de uma refatoração entra direto na sua build.
+
+O pacote é publicado como fonte + `dist` — o `prepare` roda o build no momento da instalação, então não há artefato commitado no repo.
+
+### 2. Tailwind
+
+O tema mora num preset. Como o `package.json` de um app Vite normalmente tem `"type": "module"`, o config precisa ser **`tailwind.config.cjs`**:
+
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  presets: [require('@samuvanoni/design-system/tailwind-preset')],
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    './index.html',
+    // Sem esta linha os componentes do kit vêm sem estilo.
+    './node_modules/@samuvanoni/design-system/dist/**/*.{js,mjs}',
+  ],
+};
+```
+
+E no CSS de entrada:
+
+```css
+@import "tailwindcss";
+@config "../tailwind.config.cjs";
+```
+
+### 3. Raiz da app
+
+```tsx
+import '@samuvanoni/design-system/styles/variables.css';
+import 'react-day-picker/style.css';
+import '@samuvanoni/design-system/styles/day-picker.css';
+import './main.css';
+
+import { ThemeProvider, ToastProvider } from '@samuvanoni/design-system';
+
+<ThemeProvider>
+  <ToastProvider>
+    <App />
+  </ToastProvider>
+</ThemeProvider>
+```
+
+### 4. Usar
+
+```tsx
+import { Button, Field, Input, useToast } from '@samuvanoni/design-system';
+```
+
+Dentro deste repo os imports são relativos (`../lib/cn`); nos SaaS é sempre o nome do pacote.
+
+### O ciclo de mudança
+
+1. A alteração nasce **aqui**, nunca no SaaS. Consertar direto no consumidor mata o cookbook.
+2. Durante a iteração, `npm link` no SaaS para ver ao vivo sem publicar.
+3. Estabilizou: commit + `git tag vX.Y.Z` + push.
+4. Cada SaaS sobe quando quiser, apontando para a tag nova.
+
+### Armadilhas conhecidas
+
+- **React duplicado**: `react`/`react-dom` são `peerDependencies` de propósito. Se algum dia virarem `dependencies`, o SaaS ganha uma segunda cópia do React e quebra com *Invalid hook call*.
+- **Componentes sem estilo**: quase sempre é o `content` do Tailwind sem o glob do `dist`.
+- **Animações sumidas**: o `tailwindcss-animate` é registrado pelo preset. Se o SaaS sobrescrever `plugins`, Modal/Toast/Accordion perdem as transições.
+
+---
+
 ## Decisões de design
 
 | Decisão | Escolha | Motivo |
