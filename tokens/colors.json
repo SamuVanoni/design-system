@@ -2,26 +2,28 @@
   "$schema": "https://design-tokens.github.io/community-group/format/",
   "meta": {
     "name": "SaaS B2B Design System - Colors",
-    "modes": ["dark", "light"],
-    "version": "0.2.0"
+    "modes": [
+      "dark",
+      "light"
+    ],
+    "version": "0.3.0"
   },
   "primary": {
-    "description": "Cobre - CTAs principais, marca. Mesma escala em ambos os temas. 500 valida AA (5.08:1) contra text-onPrimary #111827.",
-    "50":  "#FCF4EC",
-    "100": "#F7E4CE",
-    "200": "#EDC79E",
-    "300": "#DFA76D",
-    "400": "#D08E4C",
-    "500": "#C1783A",
-    "600": "#A3612C",
-    "700": "#7F4A20",
-    "800": "#5B3416",
-    "900": "#38200D",
-    "base": "#C1783A"
+    "50": "#FDF6ED",
+    "100": "#F8E5CE",
+    "200": "#F2CB9C",
+    "300": "#EAAF66",
+    "400": "#E39535",
+    "500": "#C97C1B",
+    "600": "#AC6815",
+    "700": "#8A530F",
+    "800": "#663D0A",
+    "900": "#422706",
+    "description": "Cobre da marca Inonav - CTAs principais. Ancorado no #C97C1B do logo (passo 500). Valida AA (4.98:1) contra text-onPrimary #17202E.",
+    "base": "#C97C1B"
   },
   "secondary": {
-    "description": "Cobre oxidado (verdigris/pátina) - ações alternativas e links. 500 valida AA (5.31:1) contra text-onSecondary #111827.",
-    "50":  "#ECF9F6",
+    "50": "#ECF9F6",
     "100": "#CFF0E9",
     "200": "#A0E0D3",
     "300": "#6CCBBA",
@@ -31,80 +33,98 @@
     "700": "#21645A",
     "800": "#194B44",
     "900": "#11332E",
+    "description": "Cobre oxidado (verdigris/pátina) - ações alternativas e links. 500 valida AA (5.31:1) contra text-onSecondary #111827.",
     "base": "#359C8B"
   },
   "neutral": {
-    "0":   "#FFFFFF",
-    "50":  "#F9FAFB",
-    "100": "#F3F4F6",
-    "200": "#E5E7EB",
-    "300": "#D1D5DB",
-    "400": "#9CA3AF",
-    "500": "#6B7280",
-    "600": "#4B5563",
-    "700": "#374151",
-    "800": "#1F2937",
-    "900": "#111827",
-    "950": "#030712"
+    "0": "#FFFFFF",
+    "50": "#F9FAFB",
+    "100": "#F0F2F5",
+    "200": "#DEE2E7",
+    "300": "#C2C8D1",
+    "400": "#929BAA",
+    "500": "#677283",
+    "600": "#4C5667",
+    "700": "#353F50",
+    "800": "#232D3E",
+    "900": "#17202E",
+    "950": "#0D131C",
+    "description": "Derivada do azul-petroleo da marca (#17202E = 900), nao do cinza generico. Saturacao cai conforme clareia."
   },
   "feedback": {
-    "error":   { "base": "#EF4444", "soft-dark": "#7F1D1D", "soft-light": "#FEE2E2" },
-    "success": { "base": "#22C55E", "soft-dark": "#14532D", "soft-light": "#DCFCE7" },
-    "warning": { "base": "#F59E0B", "soft-dark": "#78350F", "soft-light": "#FEF3C7" },
-    "info":    { "base": "#3B82F6", "soft-dark": "#1E3A8A", "soft-light": "#DBEAFE" }
+    "error": {
+      "base": "#EF4444",
+      "soft-dark": "#7F1D1D",
+      "soft-light": "#FEE2E2"
+    },
+    "success": {
+      "base": "#22C55E",
+      "soft-dark": "#14532D",
+      "soft-light": "#DCFCE7"
+    },
+    "warning": {
+      "base": "#F59E0B",
+      "soft-dark": "#78350F",
+      "soft-light": "#FEF3C7"
+    },
+    "info": {
+      "base": "#3B82F6",
+      "soft-dark": "#1E3A8A",
+      "soft-light": "#DBEAFE"
+    }
   },
   "semantic": {
     "dark": {
       "surface": {
-        "base":     "#111827",
+        "base": "#111827",
         "elevated": "#1F2937",
-        "overlay":  "#374151",
-        "muted":       "rgba(255, 255, 255, 0.06)",
-        "mutedHover":  "rgba(255, 255, 255, 0.10)"
+        "overlay": "#374151",
+        "muted": "rgba(255, 255, 255, 0.06)",
+        "mutedHover": "rgba(255, 255, 255, 0.10)"
       },
       "border": {
-        "subtle":  "#1F2937",
+        "subtle": "#1F2937",
         "default": "#374151",
-        "strong":  "#4B5563",
-        "focus":   "#C1783A"
+        "strong": "#4B5563",
+        "focus": "#C1783A"
       },
       "text": {
-        "primary":     "#F9FAFB",
-        "secondary":   "#D1D5DB",
-        "tertiary":    "#9CA3AF",
-        "disabled":    "#6B7280",
-        "inverse":     "#111827",
-        "onPrimary":   "#111827",
+        "primary": "#F9FAFB",
+        "secondary": "#D1D5DB",
+        "tertiary": "#9CA3AF",
+        "disabled": "#6B7280",
+        "inverse": "#111827",
+        "onPrimary": "#111827",
         "onSecondary": "#111827",
-        "link":        "#48B4A1",
-        "linkHover":   "#6CCBBA"
+        "link": "#48B4A1",
+        "linkHover": "#6CCBBA"
       },
       "backdrop": "rgba(0, 0, 0, 0.6)"
     },
     "light": {
       "surface": {
-        "base":     "#F9FAFB",
+        "base": "#F9FAFB",
         "elevated": "#FFFFFF",
-        "overlay":  "#FFFFFF",
-        "muted":       "rgba(17, 24, 39, 0.05)",
-        "mutedHover":  "rgba(17, 24, 39, 0.09)"
+        "overlay": "#FFFFFF",
+        "muted": "rgba(17, 24, 39, 0.05)",
+        "mutedHover": "rgba(17, 24, 39, 0.09)"
       },
       "border": {
-        "subtle":  "#F3F4F6",
+        "subtle": "#F3F4F6",
         "default": "#E5E7EB",
-        "strong":  "#D1D5DB",
-        "focus":   "#C1783A"
+        "strong": "#D1D5DB",
+        "focus": "#C1783A"
       },
       "text": {
-        "primary":     "#111827",
-        "secondary":   "#374151",
-        "tertiary":    "#6B7280",
-        "disabled":    "#9CA3AF",
-        "inverse":     "#F9FAFB",
-        "onPrimary":   "#111827",
+        "primary": "#111827",
+        "secondary": "#374151",
+        "tertiary": "#6B7280",
+        "disabled": "#9CA3AF",
+        "inverse": "#F9FAFB",
+        "onPrimary": "#111827",
         "onSecondary": "#111827",
-        "link":        "#21645A",
-        "linkHover":   "#194B44"
+        "link": "#21645A",
+        "linkHover": "#194B44"
       },
       "backdrop": "rgba(17, 24, 39, 0.5)"
     }

@@ -94,8 +94,12 @@ module.exports = {
         backdrop:       'var(--backdrop)',
       },
       fontFamily: {
-        sans: ['Manrope', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+        // Aponta pro TOKEN, nao pro nome literal da familia. Loaders que
+        // auto-hospedam (next/font) geram um nome com hash e o expoem numa CSS
+        // var — fixar 'Inter' aqui faria o utilitario `font-sans` procurar uma
+        // familia que nunca foi registrada com esse nome.
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
       },
       fontSize: {
         h1:       ['2.5rem',   { lineHeight: '1.15', fontWeight: '700', letterSpacing: '-0.02em' }],

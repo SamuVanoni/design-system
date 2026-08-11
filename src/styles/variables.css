@@ -4,20 +4,25 @@
    Temas: dark (default) e light — trocados via [data-theme] no <html>.
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+/* O kit NAO baixa fonte. Havia um @import do Google Fonts aqui, o que colocava
+   uma requisicao de rede bloqueante no caminho critico de todo consumidor (e
+   quebrava offline). Carregar a fonte e responsabilidade da app — em Next,
+   `next/font` auto-hospeda. O kit apenas declara a familia que espera. */
 
 :root {
-  /* ---------- Primary (Cobre) — invariante entre temas ---------- */
-  --color-primary-50:  #FCF4EC;
-  --color-primary-100: #F7E4CE;
-  --color-primary-200: #EDC79E;
-  --color-primary-300: #DFA76D;
-  --color-primary-400: #D08E4C;
-  --color-primary-500: #C1783A;
-  --color-primary-600: #A3612C;
-  --color-primary-700: #7F4A20;
-  --color-primary-800: #5B3416;
-  --color-primary-900: #38200D;
+  /* ---------- Primary (Cobre da marca) — invariante entre temas ----------
+     Ancorado no cobre exato do logo (#C97C1B) no passo 500; os demais passos
+     mantem a matiz 33 e variam so a luminosidade. */
+  --color-primary-50:  #FDF6ED;
+  --color-primary-100: #F8E5CE;
+  --color-primary-200: #F2CB9C;
+  --color-primary-300: #EAAF66;
+  --color-primary-400: #E39535;
+  --color-primary-500: #C97C1B;
+  --color-primary-600: #AC6815;
+  --color-primary-700: #8A530F;
+  --color-primary-800: #663D0A;
+  --color-primary-900: #422706;
 
   /* ---------- Secondary (Cobre oxidado / verdigris) ---------- */
   --color-secondary-50:  #ECF9F6;
@@ -31,19 +36,23 @@
   --color-secondary-800: #194B44;
   --color-secondary-900: #11332E;
 
-  /* ---------- Neutrals ---------- */
+  /* ---------- Neutrals ----------
+     Rampa derivada do azul-petroleo da marca (#17202E = passo 900), nao do
+     cinza generico. A saturacao cai conforme clareia: no tema escuro o navy da
+     marca E a cor dominante da tela; no claro as superficies ficam quase
+     neutras, sem puxar azul. */
   --color-neutral-0:   #FFFFFF;
   --color-neutral-50:  #F9FAFB;
-  --color-neutral-100: #F3F4F6;
-  --color-neutral-200: #E5E7EB;
-  --color-neutral-300: #D1D5DB;
-  --color-neutral-400: #9CA3AF;
-  --color-neutral-500: #6B7280;
-  --color-neutral-600: #4B5563;
-  --color-neutral-700: #374151;
-  --color-neutral-800: #1F2937;
-  --color-neutral-900: #111827;
-  --color-neutral-950: #030712;
+  --color-neutral-100: #F0F2F5;
+  --color-neutral-200: #DEE2E7;
+  --color-neutral-300: #C2C8D1;
+  --color-neutral-400: #929BAA;
+  --color-neutral-500: #677283;
+  --color-neutral-600: #4C5667;
+  --color-neutral-700: #353F50;
+  --color-neutral-800: #232D3E;
+  --color-neutral-900: #17202E;
+  --color-neutral-950: #0D131C;
 
   /* ---------- Feedback (base — invariante) ---------- */
   --color-error:   #EF4444;
@@ -52,7 +61,7 @@
   --color-info:    #3B82F6;
 
   /* ---------- Typography ---------- */
-  --font-sans: 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --fw-regular: 400;
@@ -103,8 +112,8 @@
 }
 
 :root[data-theme='light'] {
-  --skeleton-base:   rgba(17, 24, 39, 0.08);
-  --skeleton-shine:  rgba(17, 24, 39, 0.04);
+  --skeleton-base:   rgba(23, 32, 46, 0.08);
+  --skeleton-shine:  rgba(23, 32, 46, 0.04);
 }
 
 /* ============================================================
@@ -155,13 +164,18 @@
   --surface-muted:       rgba(255, 255, 255, 0.06);
   --surface-muted-hover: rgba(255, 255, 255, 0.10);
 
-  --border-subtle:  var(--color-neutral-800);
+  /* border-subtle era IGUAL a surface-elevated — a borda do card tinha a cor do
+     proprio card, entao nao existia. Agora cada nivel de borda e um passo acima
+     da superficie que ele delimita. */
+  --border-subtle:  #323C4E;
   --border-default: var(--color-neutral-700);
   --border-strong:  var(--color-neutral-600);
   --border-focus:   var(--color-primary-500);
 
-  --text-primary:      var(--color-neutral-50);
-  --text-secondary:    var(--color-neutral-300);
+  /* Texto principal era neutral-50 (17:1 sobre o fundo): branco quase puro sobre
+     quase preto halona e cansa. 13:1 mantem AA com folga e tira o ofuscamento. */
+  --text-primary:      #E2E5E9;
+  --text-secondary:    #B8BDC7;
   --text-tertiary:     var(--color-neutral-400);
   --text-disabled:     var(--color-neutral-500);
   --text-inverse:      var(--color-neutral-900);
@@ -181,14 +195,18 @@
   --fb-success-text: #4ADE80;
   --fb-warning-text: #FBBF24;
   --fb-info-text:    #60A5FA;
-  --primary-onSoft:  #DFA76D;    /* dark: cobre 300 — pop sobre fundo escuro */
+  --primary-onSoft:  #EAAF66;    /* dark: cobre 300 — pop sobre fundo escuro */
 
   --backdrop: rgba(0, 0, 0, 0.6);
 
-  --shadow-sm:    0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --shadow-md:    0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
-  --shadow-lg:    0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
-  --shadow-focus: 0 0 0 3px rgba(193, 120, 58, 0.4);
+  /* Eleva-se com LUZ, nao com sombra. Sombra preta sobre fundo quase preto e
+     invisivel — era por isso que o tema escuro parecia chapado enquanto o claro
+     ganhava profundidade de graca. O anel claro (0 0 0 1px branco translucido)
+     faz o papel que a sombra faz no claro; a sombra preta fica so pra ancorar. */
+  --shadow-sm:    0 0 0 1px rgba(255, 255, 255, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md:    0 0 0 1px rgba(255, 255, 255, 0.06), 0 4px 10px -2px rgba(0, 0, 0, 0.6);
+  --shadow-lg:    0 0 0 1px rgba(255, 255, 255, 0.08), 0 16px 32px -8px rgba(0, 0, 0, 0.7);
+  --shadow-focus: 0 0 0 3px rgba(201, 124, 27, 0.45);
 }
 
 /* ============================================================
@@ -198,8 +216,8 @@
   --surface-base:     var(--color-neutral-50);
   --surface-elevated: var(--color-neutral-0);
   --surface-overlay:  var(--color-neutral-0);
-  --surface-muted:       rgba(17, 24, 39, 0.05);
-  --surface-muted-hover: rgba(17, 24, 39, 0.09);
+  --surface-muted:       rgba(23, 32, 46, 0.05);
+  --surface-muted-hover: rgba(23, 32, 46, 0.09);
 
   --border-subtle:  var(--color-neutral-100);
   --border-default: var(--color-neutral-200);
@@ -227,14 +245,14 @@
   --fb-success-text: #15803D;
   --fb-warning-text: #B45309;
   --fb-info-text:    #1D4ED8;
-  --primary-onSoft:  #7F4A20;    /* light: cobre 700 — 7.2:1 sobre fundo claro */
+  --primary-onSoft:  #8A530F;    /* light: cobre 700 — 6.4:1 sobre fundo claro */
 
-  --backdrop: rgba(17, 24, 39, 0.5);
+  --backdrop: rgba(23, 32, 46, 0.5);
 
-  --shadow-sm:    0 1px 2px 0 rgba(17, 24, 39, 0.08);
-  --shadow-md:    0 4px 6px -1px rgba(17, 24, 39, 0.10), 0 2px 4px -2px rgba(17, 24, 39, 0.08);
-  --shadow-lg:    0 10px 15px -3px rgba(17, 24, 39, 0.12), 0 4px 6px -4px rgba(17, 24, 39, 0.08);
-  --shadow-focus: 0 0 0 3px rgba(193, 120, 58, 0.35);
+  --shadow-sm:    0 1px 2px 0 rgba(23, 32, 46, 0.08);
+  --shadow-md:    0 4px 6px -1px rgba(23, 32, 46, 0.10), 0 2px 4px -2px rgba(23, 32, 46, 0.08);
+  --shadow-lg:    0 10px 15px -3px rgba(23, 32, 46, 0.12), 0 4px 6px -4px rgba(23, 32, 46, 0.08);
+  --shadow-focus: 0 0 0 3px rgba(201, 124, 27, 0.35);
 }
 
 /* ============================================================

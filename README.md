@@ -91,7 +91,7 @@ Dentro deste repo os imports são relativos (`../lib/cn`); nos SaaS é sempre o 
 | Temas | dark (default) + light | Toggle manual via `ThemeProvider`, persistido em localStorage |
 | Primária | `#C1783A` (cobre) | Cor da marca; alto contraste em ambos os temas |
 | Secundária |  `#359C8B` (cobre oxidado) | Pátina/verdigris — contraste complementar com o cobre |
-| Tipografia | Manrope | Legível em telas, feel profissional-amigável |
+| Tipografia | Inter (carregada pela app, nao pelo kit) | Neutra, otima em tabela e numero — leitura de SaaS B2B serio |
 | Ícones | `lucide-react` | Tree-shakeable, 1000+ ícones |
 | Grid base | 8px (múltiplos: 4/8/16/24/32/48/64) | Consistência sem excesso |
 | Base moleculares | Radix UI | Acessibilidade, focus trap, teclado — de graça |

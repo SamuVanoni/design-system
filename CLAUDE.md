@@ -23,6 +23,17 @@ import { ThemeProvider, ToastProvider } from '@/components';
 
 Sem esses providers, `useToast()` explode e o tema não persiste.
 
+**A fonte é responsabilidade da app, não do kit.** O kit declara
+`--font-sans: 'Inter', …` mas **não baixa nada** — o `@import` do Google Fonts foi
+removido em v0.3.0 porque punha uma requisição de rede bloqueante no caminho crítico de
+todo consumidor (e quebrava offline). Em Next, carregue com `next/font`, que auto-hospeda:
+
+```tsx
+import { Inter } from 'next/font/google';
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
+// <html className={inter.variable}> + no CSS: --font-sans: var(--font-inter), system-ui…
+```
+
 ---
 
 ## Tokens semânticos — SEMPRE prefira aos escalares
