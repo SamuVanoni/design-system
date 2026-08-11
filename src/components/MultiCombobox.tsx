@@ -4,7 +4,7 @@ import { Command } from 'cmdk';
 import { Check, ChevronsUpDown, Search, X } from 'lucide-react';
 import { cn } from '../lib/cn';
 import { useField } from './Field';
-import type { Option } from './Combobox';
+import { textoDeBusca, type Option } from './Combobox';
 
 /**
  * MultiCombobox — Select com múltiplos valores + busca.
@@ -130,7 +130,7 @@ export function MultiCombobox({
                     <span
                       role="button"
                       tabIndex={-1}
-                      aria-label={`Remover ${opt.label}`}
+                      aria-label={`Remover ${textoDeBusca(opt.label, opt.searchValue, opt.value)}`}
                       onClick={(e) => remove(opt.value, e)}
                       className="ml-0.5 rounded p-0.5 hover:bg-primary-500/20"
                     >
@@ -197,7 +197,7 @@ export function MultiCombobox({
                   <Command.Item
                     key={opt.value}
                     value={opt.value}
-                    keywords={opt.searchValue ? [opt.searchValue, opt.label] : [opt.label]}
+                    keywords={[textoDeBusca(opt.label, opt.searchValue, opt.value)]}
                     disabled={opt.disabled}
                     onSelect={() => toggle(opt.value)}
                     className={cn(

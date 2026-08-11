@@ -32,11 +32,26 @@ import { useField } from './Field';
 
 export interface Option {
   value: string;
-  label: string;
+  /**
+   * Aceita ReactNode para casos como bolinha de cor + texto. Se você passar um
+   * nó, informe também `searchValue` — o cmdk filtra por texto e não consegue
+   * ler dentro de um elemento (sem isso a busca cai no `value`, que costuma ser
+   * um id). Com string, `searchValue` é opcional.
+   */
+  label: ReactNode;
   description?: string;
   disabled?: boolean;
-  /** Texto alternativo para busca. Se omitido, a busca usa `label`. */
+  /** Texto alternativo para busca. Se omitido, a busca usa `label` quando ele é string. */
   searchValue?: string;
+}
+
+/**
+ * cmdk filtra por texto puro; um label ReactNode não serve como chave de busca.
+ * Também é o texto usado em `aria-label` — daí o MultiCombobox reaproveitar.
+ */
+export function textoDeBusca(label: ReactNode, searchValue: string | undefined, value: string): string {
+  if (searchValue) return searchValue;
+  return typeof label === 'string' ? label : value;
 }
 
 type Size = 'sm' | 'md';
@@ -198,7 +213,7 @@ function ComboboxItemInternal({
   return (
     <Command.Item
       value={value}
-      keywords={searchValue ? [searchValue, label] : [label]}
+      keywords={[textoDeBusca(label, searchValue, value)]}
       disabled={disabled}
       onSelect={onSelect}
       className={cn(
@@ -221,8 +236,7 @@ function ComboboxItemInternal({
 
 // ---------- API composicional (para uso avançado) ----------
 
-interface ItemProps extends Omit<Option, 'label'> {
-  label: ReactNode;
+interface ItemProps extends Option {
   onSelect?: (v: string) => void;
 }
 
@@ -230,7 +244,7 @@ function ComboboxItem({ value, label, description, disabled, searchValue, onSele
   return (
     <Command.Item
       value={value}
-      keywords={searchValue ? [searchValue, String(label)] : [String(label)]}
+      keywords={[textoDeBusca(label, searchValue, value)]}
       disabled={disabled}
       onSelect={() => onSelect?.(value)}
       className={cn(

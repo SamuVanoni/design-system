@@ -37,7 +37,7 @@ Todos os componentes se importam de `@/components`. Detalhes em `src/components/
 | `Radio.Group` / `Radio.Item` | Group: `value`, `onValueChange`, `orientation`. Item: `value`, `label`, `description` | `Radio.tsx` |
 | `Switch` | `checked`, `size` (sm/md), `label`, `description`, `labelBefore` | `Switch.tsx` |
 | `Select` | `value`, `onValueChange`, `placeholder`, `size`. Sub: `Select.Item`, `Select.Group`, `Select.Label`, `Select.Separator` | `Select.tsx` |
-| `Combobox` | Select com busca. `options: Option[]`, `value`, `searchPlaceholder`, `emptyText`. Sub: `Combobox.Item`, `Combobox.Group` | `Combobox.tsx` |
+| `Combobox` | Select com busca. `options: Option[]`, `value`, `searchPlaceholder`, `emptyText`. Sub: `Combobox.Item`, `Combobox.Group`. **`Option.label` aceita `ReactNode`** (bolinha de cor, ícone) — nesse caso passe `searchValue` com o texto, senão a busca cai no `value` | `Combobox.tsx` |
 | `MultiCombobox` | Combobox múltiplo. `value: string[]`, `maxDisplay` (chips visíveis antes de "+N") | `MultiCombobox.tsx` |
 | `DatePicker` | `value: Date`, `onValueChange`, `minDate`, `maxDate`, `displayFormat`, `locale` | `DatePicker.tsx` |
 | `DateRangePicker` | `value: DateRange`, `presets` (default true), `numberOfMonths` (default 2) | `DateRangePicker.tsx` |
