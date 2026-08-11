@@ -11,6 +11,7 @@ import { cn } from '../lib/cn';
  *               sem competir com primary/secondary. O ícone é injetado automaticamente;
  *               passe `leftIcon` para sobrescrever ou `leftIcon={null}` para remover.)
  *  - ghost     (sem fundo)
+ *  - danger    (vermelho sólido, ações destrutivas: excluir/confirmar exclusão)
  * Tamanhos: sm | md | lg
  * Estados nativos: hover, active, focus-visible, disabled + loading.
  *
@@ -18,7 +19,7 @@ import { cn } from '../lib/cn';
  * <Button variant="info" size="sm">Este relatório atualiza a cada 24h</Button>
  */
 
-type Variant = 'primary' | 'secondary' | 'info' | 'ghost';
+type Variant = 'primary' | 'secondary' | 'info' | 'ghost' | 'danger';
 type Size = 'sm' | 'md' | 'lg';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -55,6 +56,9 @@ const variants: Record<Variant, string> = {
   ghost:
     'bg-transparent text-text-primary hover:bg-surface-elevated active:bg-surface-overlay ' +
     'focus-visible:ring-primary-500',
+  danger:
+    'bg-error text-text-onPrimary hover:opacity-90 active:opacity-80 ' +
+    'focus-visible:ring-error',
 };
 
 export function Button({

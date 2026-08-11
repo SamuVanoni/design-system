@@ -14,7 +14,7 @@ Todos os componentes se importam de `@/components`. Detalhes em `src/components/
 
 | Componente | Props principais | Arquivo |
 |---|---|---|
-| `Button` | `variant` (primary/secondary/**info**/ghost), `size` (sm/md/lg), `loading`, `leftIcon`, `rightIcon`, `fullWidth`. `info` = aviso discreto: fundo cinza translúcido + ícone "i" azul automático | `Button.tsx` |
+| `Button` | `variant` (primary/secondary/**info**/ghost/**danger**), `size` (sm/md/lg), `loading`, `leftIcon`, `rightIcon`, `fullWidth`. `info` = aviso discreto: fundo cinza translúcido + ícone "i" azul automático. `danger` = vermelho sólido, só para ações destrutivas | `Button.tsx` |
 | `Badge` | `variant` (default/primary/success/warning/error/info), `count`, `max`, `dot`, `icon` | `Badge.tsx` |
 | `Label` | `htmlFor`, `required`, `disabled` | `Label.tsx` |
 | `HelperText` | `tone` (default/error/success) | `HelperText.tsx` |
@@ -50,7 +50,7 @@ Todos os componentes se importam de `@/components`. Detalhes em `src/components/
 | Componente | Props principais | Arquivo |
 |---|---|---|
 | `Card` | Sub: `Card.Header` (title, description, action), `Card.Body`, `Card.Footer`. Root: `interactive` | `Card.tsx` |
-| `Modal` | `open`, `onOpenChange`, `title`, `description`, `size` (sm/md/lg). Sub: `Modal.Footer` | `Modal.tsx` |
+| `Modal` | `open`, `onOpenChange`, `title`, `description`, `size` (sm/md/lg). Sub: `Modal.Footer`. Trava em `max-h-[90vh]`: cabeçalho fixo, corpo rolável (classe `modal-body`), footer sticky | `Modal.tsx` |
 | `Dropdown` | `trigger`, `align`. Sub: `Dropdown.Item` (com `tone` danger), `Dropdown.CheckboxItem`, `Dropdown.Label`, `Dropdown.Separator` | `Dropdown.tsx` |
 | `Tabs` | `defaultValue` ou `value`+`onValueChange`. Sub: `Tabs.List`, `Tabs.Trigger`, `Tabs.Content` | `Tabs.tsx` |
 | `Popover` | `trigger`, `side`, `align`, `size`, `showArrow`. Sub: `Popover.Header` (com `onClose`), `Popover.Body`, `Popover.Close` | `Popover.tsx` |
