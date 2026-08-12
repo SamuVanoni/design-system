@@ -36,6 +36,23 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'sw
 
 ---
 
+## `className` sobrescreve a variante (desde v0.6.3)
+
+O `cn` interno usa `tailwind-merge`: numa colisão, **a última classe vence**, e o
+`className` do consumidor é sempre o último argumento. `<Button variant="ghost"
+className="text-error">` agora sai vermelho de verdade.
+
+Antes era um `join(' ')` puro e quem decidia era a ordem no CSS gerado — o `className`
+perdia sem avisar. Se você contornou isso com `!important` ou com um wrapper, pode tirar.
+
+Ao acrescentar um passo novo ao preset (`fontSize`, `transitionDuration`, `boxShadow`),
+**declare-o também em `src/lib/cn.ts`**. O `tailwind-merge` só conhece a escala padrão do
+Tailwind: um `text-body` não declarado é lido como *cor*, e some quando você compõe com
+`text-text-primary`. Chave errada no `extend` não dá erro — cria um grupo solto e a classe
+volta a não conflitar com nada.
+
+---
+
 ## Tokens semânticos — SEMPRE prefira aos escalares
 
 **Nunca faça:** `<div className="bg-neutral-800 text-neutral-50 border border-neutral-700">`

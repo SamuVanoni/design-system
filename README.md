@@ -92,6 +92,7 @@ Dentro deste repo os imports são relativos (`../lib/cn`); nos SaaS é sempre o 
 | Primária | `#2A7F71` (verdigris) | Acento da marca. Significa **estado** (foco, seleção, aba ativa, switch ligado), não ação |
 | Ação sólida | `--action-*`, neutro que inverte por tema | Navy no claro, claro no escuro. Separada da primária justamente para o acento não preencher área grande |
 | Texto sobre a primária | branco (v0.6.2) | Era navy quando o acento era o cobre. O verdigris é mais escuro e inverteu a relação: branco 4,80:1, navy 3,41:1 |
+| Composição de classe | `tailwind-merge` no `cn` (v0.6.3) | Numa colisão a última vence, e o `className` é sempre o último argumento — antes ele perdia para a variante conforme a ordem do CSS gerado |
 | Secundária |  `#359C8B` | Rampa herdada; **nenhum componente do kit usa** desde a v0.5.0. Fica disponível para consumidores |
 | Tipografia | Inter (carregada pela app, nao pelo kit) | Neutra, otima em tabela e numero — leitura de SaaS B2B serio |
 | Ícones | `lucide-react` | Tree-shakeable, 1000+ ícones |

@@ -1,6 +1,6 @@
 {
   "name": "@samuvanoni/design-system",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Design system React para SaaS B2B — dark/light via data-theme, tokens semânticos.",
   "license": "UNLICENSED",
   "repository": {
@@ -58,6 +58,7 @@
     "date-fns": "^4.4.0",
     "lucide-react": "^1.25.0",
     "react-day-picker": "^10.0.1",
+    "tailwind-merge": "^2.6.1",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
