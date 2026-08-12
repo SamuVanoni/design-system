@@ -44,7 +44,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch
       className={cn(
         'relative inline-flex shrink-0 items-center rounded-full transition-colors',
         s.root,
-        // Off: cinza médio (visível em ambos os temas). On: cobre primário.
+        // Off: cinza médio (visível em ambos os temas). On: acento primário.
         'bg-border-strong data-[state=checked]:bg-primary-500',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base',
         'disabled:opacity-40 disabled:cursor-not-allowed',

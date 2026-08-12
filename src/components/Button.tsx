@@ -6,7 +6,7 @@ import { cn } from '../lib/cn';
  * Button
  * Variantes:
  *  - primary   (sólido neutro que inverte por tema — navy no claro, claro no escuro.
- *               NÃO usa o cobre: desde v0.5.0 o acento da marca significa só estado,
+ *               NÃO usa o acento da marca: desde v0.5.0 ele significa só estado,
  *               não ação. Ver --action-* em variables.css.)
  *  - secondary (contorno neutro, ações alternativas)
  *  - info      (discreta: fundo cinza translúcido + ícone "i" azul — avisos e dicas,

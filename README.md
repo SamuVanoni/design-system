@@ -89,8 +89,9 @@ Dentro deste repo os imports são relativos (`../lib/cn`); nos SaaS é sempre o 
 | Decisão | Escolha | Motivo |
 |---|---|---|
 | Temas | dark (default) + light | Toggle manual via `ThemeProvider`, persistido em localStorage |
-| Primária | `#C1783A` (cobre) | Cor da marca; alto contraste em ambos os temas |
-| Secundária |  `#359C8B` (cobre oxidado) | Pátina/verdigris — contraste complementar com o cobre |
+| Primária | `#2A7F71` (verdigris) | Acento da marca. Significa **estado** (foco, seleção, aba ativa, switch ligado), não ação |
+| Ação sólida | `--action-*`, neutro que inverte por tema | Navy no claro, claro no escuro. Separada da primária justamente para o acento não preencher área grande |
+| Secundária |  `#359C8B` | Rampa herdada; **nenhum componente do kit usa** desde a v0.5.0. Fica disponível para consumidores |
 | Tipografia | Inter (carregada pela app, nao pelo kit) | Neutra, otima em tabela e numero — leitura de SaaS B2B serio |
 | Ícones | `lucide-react` | Tree-shakeable, 1000+ ícones |
 | Grid base | 8px (múltiplos: 4/8/16/24/32/48/64) | Consistência sem excesso |
@@ -240,8 +241,16 @@ Prefira **tokens semânticos** em vez de escalas cruas — assim mudar um tom af
 | `border-border-subtle` | Divisores sutis |
 | `border-border-strong` | Contornos fortes / seleção |
 | `bg-backdrop` | Overlay atrás de modais |
+| `bg-action` + `text-text-onAction` | Botão sólido de ação (inverte por tema) |
+| `text-primary-onSoft` | Acento sobre fundo suave — nunca `text-primary-500` direto, reprova AA no claro |
+| `text-text-link` / `text-text-linkHover` | Links (neutros + sublinhado desde a v0.5.0) |
 
-Feedback soft (fundo suave para badges/alerts): `bg-success-soft`, `bg-warning-soft`, `bg-error-soft`, `bg-info-soft`.
+**Fundo de feedback: prefira o translúcido ao `-soft` opaco** — `bg-error/16`, `bg-warning/12`.
+No tema escuro os `-soft` viram mancha saturada sobre o navy e reprovavam AA (3,62:1 medido).
+Os `bg-*-soft` continuam existindo para quem já os usa.
+
+Cor de status vai por **severidade**: cápsula colorida só em `error` e `warning`; `success` e
+`info` são cápsula neutra com marcador. Cor que aparece em toda linha não avisa nada.
 
 ---
 
@@ -653,7 +662,7 @@ useCommandShortcut(() => setOpen((o) => !o));   // ⌘K no Mac / Ctrl+K no resto
 ```
 
 - **Sem estado interno de ordenação**: `HeadCell.sort` só renderiza a seta e chama `onSort`. Você reordena os dados no lado da app. Isso mantém o componente enxuto e composicional.
-- `Table.Row` aceita `interactive` (hover + cursor) e `selected` (fundo cobre sutil).
+- `Table.Row` aceita `interactive` (hover + cursor) e `selected` (fundo verdigris sutil).
 - `Table.Cell` aceita `align` (`left | right | center`), `nowrap`, `truncate`.
 - `Table.HeadCell` aceita `sort` (`asc | desc | none`), `align`, `width`.
 - Wrapper com scroll horizontal por default (útil em telas pequenas). Desabilite com `scrollable={false}` quando embutido em Card.
@@ -689,7 +698,7 @@ const columns = useMemo<ColumnDef<User>[]>(() => [
 
 Features:
 - **Sort** por clique no header (chame `enableSorting: false` na coluna para desabilitar).
-- **Seleção** com checkbox `parent` (indeterminate quando parcial) + linhas com fundo cobre sutil ao selecionar.
+- **Seleção** com checkbox `parent` (indeterminate quando parcial) + linhas com fundo verdigris sutil ao selecionar.
 - **Column visibility**: `Dropdown` com checkboxes; passe `meta: { hideFromColumnVisibility: true }` para excluir do menu.
 - **Loading**: entrega N linhas de `Skeleton` no formato certo.
 - **Empty**: `emptyText` customizável.
@@ -749,7 +758,7 @@ Indicador circular. Por padrão herda cor do texto do pai (`currentColor`), ent�
 
 ```tsx
 <Spinner />                          // md, cor do texto
-<Spinner size="sm" tone="primary" /> // cobre
+<Spinner size="sm" tone="primary" /> // verdigris
 <Spinner size="lg" tone="muted" />   // cinza sutil
 <Spinner label="Carregando..." />    // adiciona rótulo p/ leitores de tela
 ```

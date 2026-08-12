@@ -154,7 +154,7 @@ Múltiplos de 4/8: `p-1 p-2 p-3 p-4 p-5 p-6 p-8 p-10 p-12 p-16 p-20 p-24`. **Nun
 - Não criar novos tokens de cor sem adicionar em `tokens/colors.json` E `src/styles/variables.css` (dark + light).
 - Não usar `dark:` do Tailwind — o kit troca tema via `data-theme`, não via classe `dark`.
 - Não instalar libs de UI concorrentes (shadcn, MUI, Chakra). Se falta algo, adicione ao kit.
-- Não usar cores hardcoded (`#FF6B1A`) no código — sempre via classe Tailwind semântica.
+- Não usar cores hardcoded (`#2A7F71`, `#EF4444`…) no código — sempre via classe Tailwind semântica.
 - Não colocar lógica de negócio dentro dos componentes do kit — eles são apresentacionais.
 
 ---

@@ -80,7 +80,7 @@ function TableBody({ className, ...rest }: HTMLAttributes<HTMLTableSectionElemen
 }
 
 interface RowProps extends HTMLAttributes<HTMLTableRowElement> {
-  /** Marca a linha como selecionada (fundo levemente acobreado). */
+  /** Marca a linha como selecionada (fundo levemente tingido com o acento). */
   selected?: boolean;
   /** Adiciona hover + cursor pointer. */
   interactive?: boolean;
