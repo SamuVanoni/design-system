@@ -169,11 +169,24 @@
 :root[data-theme='dark'] {
   --surface-base:     var(--color-neutral-900);
   --surface-elevated: var(--color-neutral-800);
-  --surface-overlay:  var(--color-neutral-700);
   /* Cinza translúcido — empilha sobre qualquer superfície (base OU elevated).
      Usado pela variante `info` do Button e por chips discretos. */
   --surface-muted:       rgba(255, 255, 255, 0.06);
   --surface-muted-hover: rgba(255, 255, 255, 0.10);
+
+  /* O overlay era #353F50 (neutral-700), claro demais para carregar texto
+     colorido: o item `danger` do Dropdown ficava em 3,84:1 e nao havia tinta
+     que resolvesse — o teto era a superficie. Agora ele IGUALA o elevated, que
+     e o que o tema claro sempre fez (la os dois sao #FFFFFF). Painel flutuante
+     se distingue por BORDA e SOMBRA, nao por tom de fundo.
+       texto danger #F87171 -> 5,01:1 (era 3,84)
+       texto normal #E2E5E9 -> 10,96:1
+     Consequencia que exigiu trabalho junto: o token tambem servia de tinta de
+     hover/active em varios componentes, e ali ele precisa ser MAIS CLARO que a
+     superficie. Esses usos passaram para --surface-muted-hover, que e
+     translucido e por isso clareia qualquer fundo — o solido nao fazia isso
+     (sobre o card ele dava 1,30:1; sobre a base, 1,54:1). */
+  --surface-overlay:     var(--color-neutral-800);
 
   /* border-subtle era IGUAL a surface-elevated — a borda do card tinha a cor do
      proprio card, entao nao existia. Agora cada nivel de borda e um passo acima

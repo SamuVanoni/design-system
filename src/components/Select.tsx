@@ -100,7 +100,7 @@ const Item = forwardRef<HTMLDivElement, ItemProps>(function Item(
       className={cn(
         'relative flex select-none items-center gap-2 rounded px-2 py-1.5 pl-7 text-sm outline-none',
         'transition-colors',
-        'data-[highlighted]:bg-surface-elevated',
+        'data-[highlighted]:bg-surface-mutedHover',
         'data-[disabled]:pointer-events-none data-[disabled]:opacity-40',
         className,
       )}

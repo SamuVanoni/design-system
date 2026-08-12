@@ -106,7 +106,7 @@ export function Avatar({
       <RA.Root
         className={cn(
           'inline-flex select-none items-center justify-center overflow-hidden rounded-full',
-          'bg-surface-overlay align-middle',
+          'bg-surface-muted align-middle',
           ring && 'ring-2 ring-surface-base',
           sizes[size],
         )}
@@ -180,7 +180,7 @@ export function AvatarGroup({ children, max = 4, size = 'md', className }: Avata
           <span
             className={cn(
               'inline-flex items-center justify-center rounded-full font-medium',
-              'bg-surface-overlay text-text-secondary ring-2 ring-surface-base',
+              'bg-surface-muted text-text-secondary ring-2 ring-surface-base',
               sizes[size],
             )}
             aria-label={`Mais ${hidden}`}

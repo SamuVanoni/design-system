@@ -153,7 +153,7 @@ function PageButton({ active, className, children, ...rest }: PageButtonProps) {
         'text-sm font-medium transition-colors',
         active
           ? 'bg-primary-500 text-text-onPrimary'
-          : 'text-text-secondary hover:bg-surface-overlay hover:text-text-primary',
+          : 'text-text-secondary hover:bg-surface-mutedHover hover:text-text-primary',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base',
         'disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent',
         className,

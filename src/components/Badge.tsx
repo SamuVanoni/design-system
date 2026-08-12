@@ -32,7 +32,7 @@ interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
 const NEUTRA = 'bg-surface-muted text-text-secondary border border-border';
 
 const variants: Record<Variant, string> = {
-  default: 'bg-surface-overlay text-text-primary border border-border',
+  default: 'bg-surface-muted text-text-primary border border-border',
   primary: 'bg-primary-500/15 text-primary-onSoft border border-primary-500/30',
   success: NEUTRA,
   info:    NEUTRA,

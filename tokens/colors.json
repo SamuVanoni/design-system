@@ -6,7 +6,7 @@
       "dark",
       "light"
     ],
-    "version": "0.7.2"
+    "version": "0.7.3"
   },
   "primary": {
     "50": "#F0F9F8",
@@ -78,7 +78,7 @@
       "surface": {
         "base": "#17202E",
         "elevated": "#232D3E",
-        "overlay": "#353F50",
+        "overlay": "#232D3E",
         "muted": "rgba(255, 255, 255, 0.06)",
         "mutedHover": "rgba(255, 255, 255, 0.10)"
       },

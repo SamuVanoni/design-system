@@ -53,6 +53,20 @@ volta a não conflitar com nada.
 
 ---
 
+## Superfície sólida vs. tinta translúcida (desde v0.7.3)
+
+| Você quer | Use | Por quê |
+|---|---|---|
+| Fundo de painel flutuante (dropdown, popover, select, tooltip) | `bg-surface-overlay` | Igual ao `elevated` nos dois temas; o que separa é **borda + sombra** |
+| Hover, seleção, item realçado, linha de tabela | `bg-surface-mutedHover` | Translúcido: clareia no escuro e escurece no claro, sobre **qualquer** superfície |
+| Chip discreto, avatar, badge neutro | `bg-surface-muted` | Idem, mais sutil |
+
+**Nunca use um tom sólido como tinta de interação.** Ele não sabe sobre o que está
+empilhado: o realce de item de menu era `bg-surface-elevated` e ficava *invisível no
+tema claro*, onde painel e elevated são ambos `#FFFFFF`.
+
+---
+
 ## Tokens semânticos — SEMPRE prefira aos escalares
 
 **Nunca faça:** `<div className="bg-neutral-800 text-neutral-50 border border-neutral-700">`

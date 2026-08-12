@@ -18,7 +18,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
       className={cn(
         'inline-flex h-10 w-10 items-center justify-center rounded-md',
         'bg-surface-elevated text-text-primary border border-border',
-        'transition-colors duration-fast hover:bg-surface-overlay',
+        'transition-colors duration-fast hover:bg-surface-mutedHover',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base',
         className,
       )}

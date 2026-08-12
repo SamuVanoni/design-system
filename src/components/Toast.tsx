@@ -131,7 +131,7 @@ export function ToastProvider({
               aria-label="Fechar"
               className={cn(
                 'inline-flex h-6 w-6 items-center justify-center rounded text-text-tertiary',
-                'hover:bg-surface-overlay hover:text-text-primary transition-colors',
+                'hover:bg-surface-mutedHover hover:text-text-primary transition-colors',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500',
               )}
             >

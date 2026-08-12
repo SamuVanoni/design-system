@@ -152,7 +152,7 @@ export function MultiCombobox({
                 tabIndex={-1}
                 aria-label="Limpar seleção"
                 onClick={clearAll}
-                className="rounded p-1 text-text-tertiary hover:bg-surface-overlay hover:text-text-primary"
+                className="rounded p-1 text-text-tertiary hover:bg-surface-mutedHover hover:text-text-primary"
               >
                 <X className="h-3.5 w-3.5" />
               </span>
@@ -203,7 +203,7 @@ export function MultiCombobox({
                     className={cn(
                       'relative flex select-none items-start gap-2 rounded px-2 py-1.5 pl-7 text-sm outline-none',
                       'transition-colors',
-                      'data-[selected=true]:bg-surface-elevated',
+                      'data-[selected=true]:bg-surface-mutedHover',
                       'data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-40',
                     )}
                   >

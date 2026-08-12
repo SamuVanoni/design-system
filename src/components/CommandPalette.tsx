@@ -108,7 +108,7 @@ function Item({ onSelect, children, icon, shortcut, disabled, keywords, tone = '
       className={cn(
         'flex select-none items-center gap-3 rounded px-2 py-2 text-sm outline-none',
         'transition-colors',
-        'data-[selected=true]:bg-surface-elevated',
+        'data-[selected=true]:bg-surface-mutedHover',
         'data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-40',
         // -onSoft, nao a cor base. Ver a nota em HelperText.
         tone === 'danger' && 'text-error-onSoft data-[selected=true]:bg-error-soft',

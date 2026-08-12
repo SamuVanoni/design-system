@@ -67,7 +67,7 @@ const variants: Record<Variant, string> = {
     'bg-surface-muted text-text-onMuted font-normal hover:bg-surface-mutedHover active:bg-surface-mutedHover ' +
     'focus-visible:ring-info',
   ghost:
-    'bg-transparent text-text-primary hover:bg-surface-elevated active:bg-surface-overlay ' +
+    'bg-transparent text-text-primary hover:bg-surface-elevated active:bg-surface-mutedHover ' +
     'focus-visible:ring-primary-500',
   danger:
     // `bg-danger`, nao `bg-error`: o error e a cor de ESTADO (borda de campo

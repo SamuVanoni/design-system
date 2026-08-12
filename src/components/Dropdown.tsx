@@ -45,7 +45,7 @@ function DropdownRoot({ trigger, children, align = 'start', sideOffset = 6 }: Dr
 const itemBase =
   'relative flex select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none ' +
   'transition-colors ' +
-  'data-[highlighted]:bg-surface-elevated ' +
+  'data-[highlighted]:bg-surface-mutedHover ' +
   'data-[disabled]:pointer-events-none data-[disabled]:opacity-40';
 
 interface ItemProps {

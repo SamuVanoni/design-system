@@ -92,7 +92,7 @@ function TableRow({ selected, interactive, className, ...rest }: RowProps) {
       data-selected={selected || undefined}
       className={cn(
         'transition-colors',
-        interactive && 'cursor-pointer hover:bg-surface-overlay/40',
+        interactive && 'cursor-pointer hover:bg-surface-mutedHover',
         selected && 'bg-primary-500/10',
         className,
       )}
