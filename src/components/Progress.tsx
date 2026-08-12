@@ -16,20 +16,28 @@ import { cn } from '../lib/cn';
 type Tone = 'primary' | 'success' | 'warning' | 'error' | 'info';
 type BarSize = 'sm' | 'md' | 'lg';
 
+/**
+ * -graphic, nao a cor base. Barra e anel sao GRAFICO: valem os 3:1 da 1.4.11,
+ * e o vizinho que conta nao e o card — e o trilho (`surface-muted`), logo
+ * atras. As cores base reprovavam ate esse limite no tema claro (verde 2,07:1
+ * e ambar 1,95:1 contra o trilho: a barra praticamente sumia), e o proprio
+ * tom padrao reprovava no escuro (verdigris 500 x trilho = 2,39:1).
+ * Ver --fb-*-graphic em variables.css.
+ */
 const barTones: Record<Tone, string> = {
-  primary: 'bg-primary-500',
-  success: 'bg-success',
-  warning: 'bg-warning',
-  error:   'bg-error',
-  info:    'bg-info',
+  primary: 'bg-primary-graphic',
+  success: 'bg-success-graphic',
+  warning: 'bg-warning-graphic',
+  error:   'bg-error-graphic',
+  info:    'bg-info-graphic',
 };
 
 const strokeTones: Record<Tone, string> = {
-  primary: 'text-primary-500',
-  success: 'text-success',
-  warning: 'text-warning',
-  error:   'text-error',
-  info:    'text-info',
+  primary: 'text-primary-graphic',
+  success: 'text-success-graphic',
+  warning: 'text-warning-graphic',
+  error:   'text-error-graphic',
+  info:    'text-info-graphic',
 };
 
 const barSizes: Record<BarSize, string> = {

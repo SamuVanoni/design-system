@@ -115,6 +115,29 @@ reprova AA em pelo menos um deles:
 O nome `-onSoft` vem da origem, mas o papel do token é **"esta cor de feedback quando
 ela é texto"** — vale sobre qualquer superfície, não só a `-soft`.
 
+#### E quando ela desenha: `-graphic` (desde v0.7.4)
+
+Barra de progresso, anel, traço de gráfico não são texto nem estado: são **gráfico**, e
+valem a 1.4.11 (≥ 3:1). O limite é mais folgado que os 4,5:1 de texto, mas o **vizinho é
+outro** — não é o card, é o trilho (`--surface-muted` composto, quase branco no claro).
+A cor base reprovava até esse limite:
+
+| contra o trilho | escuro | claro | com `-graphic` |
+|---|---|---|---|
+| `primary-500` | **2,39 ❌** | 4,36 ✅ | 4,56 / 4,36 ✅ |
+| `success` | 5,04 ✅ | **2,07 ❌** | 5,04 / 4,55 ✅ |
+| `warning` | 5,34 ✅ | **1,95 ❌** | 5,34 / 4,56 ✅ |
+| `error` | 3,05 ✅ | 3,42 ✅ | 3,05 / 4,39 ✅ |
+| `info` | 3,12 ✅ | 3,34 ✅ | 3,12 / 4,69 ✅ |
+
+No escuro o `-graphic` **é** a cor base (o visual não muda); a exceção é o acento, que
+sobe do 500 para o 400 — era o tom padrão do `CircularProgress` e o anel sumia contra o
+próprio trilho. No claro não existe passo intermediário: o green-600 (`#16A34A`) para em
+2,99:1, um décimo abaixo do limite, então o valor gráfico coincide com o `-text`.
+
+Resumo dos três contratos da mesma cor: **base** = estado (borda, ponto), **`-onSoft`** =
+texto, **`-graphic`** = desenho.
+
 ### Botões
 
 - Primary (sólido neutro): `bg-action text-text-onAction`. **Inverte por tema** — navy `#17202E` no claro, `#E2E5E9` no escuro. Um preenchimento navy sobre fundo navy teria 1,4:1 de separação e o botão sumiria; por isso `--action-*` tem valor próprio em cada tema.

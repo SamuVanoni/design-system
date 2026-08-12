@@ -126,6 +126,14 @@ module.exports = {
         'warning-onSoft': tom('--fb-warning-text'),
         'info-onSoft':    tom('--fb-info-text'),
         'primary-onSoft': tom('--primary-onSoft'),
+        // -graphic: a cor quando ela DESENHA (barra, anel, traco) em vez de
+        // pintar estado ou carregar texto. Alvo 1.4.11 (>= 3:1) contra o
+        // vizinho imediato, que costuma ser o trilho, nao o card.
+        'primary-graphic': tom('--fb-primary-graphic'),
+        'error-graphic':   tom('--fb-error-graphic'),
+        'success-graphic': tom('--fb-success-graphic'),
+        'warning-graphic': tom('--fb-warning-graphic'),
+        'info-graphic':    tom('--fb-info-graphic'),
         backdrop:       tom('--backdrop'),
       },
       // A escala padrao do Tailwind so tem 0,5,10,20,25,30,40,50… — um `/15` ou

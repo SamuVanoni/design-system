@@ -256,6 +256,20 @@
   --fb-info-text:    #60A5FA;
   --primary-onSoft:  #7DCFC1;    /* dark: verdigris 300 — 9.6:1 sobre o fundo */
 
+  /* ---------- Feedback como GRAFICO (barra, anel, traco) ----------
+     Terceiro contrato da familia, ao lado da cor base (estado: borda de campo,
+     ponto) e do -text (texto sobre o soft). Aqui o alvo e a 1.4.11: >= 3:1
+     contra a superficie vizinha — e a vizinha de uma barra de progresso nao e
+     o card, e o TRILHO (--surface-muted composto), que come mais contraste.
+     No escuro a cor base ja passa contra o trilho (#303A4A), entao o grafico
+     mantem o visual de hoje. O acento e a excecao: verdigris 500 da 2,39:1
+     contra o trilho escuro — o anel de progresso padrao sumia. Sobe pro 400. */
+  --fb-primary-graphic: var(--color-primary-400);   /* #40B5A2 — trilho 4,56:1 */
+  --fb-error-graphic:   var(--color-error);         /* trilho 3,05:1 */
+  --fb-success-graphic: var(--color-success);       /* trilho 5,04:1 */
+  --fb-warning-graphic: var(--color-warning);       /* trilho 5,34:1 */
+  --fb-info-graphic:    var(--color-info);          /* trilho 3,12:1 */
+
   --backdrop: rgba(0, 0, 0, 0.6);
 
   /* Eleva-se com LUZ, nao com sombra. Sombra preta sobre fundo quase preto e
@@ -324,6 +338,21 @@
   --fb-warning-text: #B45309;
   --fb-info-text:    #1D4ED8;
   --primary-onSoft:  #21695D;    /* light: verdigris 600 — 6.5:1 sobre fundo claro */
+
+  /* ---------- Feedback como GRAFICO (barra, anel, traco) ----------
+     Ver o comentario no bloco escuro para o contrato. Aqui e onde a cor base
+     desaba: verde e ambar sao claros por natureza e o trilho e quase branco
+     (#F3F4F5). O verde base da 2,07:1 contra ele e o ambar 2,15:1 — reprovam
+     ate os 3:1 de grafico, que sao menos exigentes que os 4,5:1 de texto.
+     Nao existe passo intermediario que resolva: o green-600 (#16A34A) para em
+     2,99:1, um decimo abaixo do limite. Por isso, no claro, o valor grafico
+     acaba coincidindo com o -text; os tokens continuam separados porque no
+     escuro eles divergem (grafico = base saturada, texto = passo 400 claro). */
+  --fb-primary-graphic: var(--color-primary-500);   /* #2A7F71 — trilho 4,36:1 */
+  --fb-error-graphic:   #DC2626;                    /* trilho 4,39:1 */
+  --fb-success-graphic: #15803D;                    /* trilho 4,55:1 */
+  --fb-warning-graphic: #B45309;                    /* trilho 4,56:1 */
+  --fb-info-graphic:    #2563EB;                    /* trilho 4,69:1 */
 
   --backdrop: rgba(23, 32, 46, 0.5);
 

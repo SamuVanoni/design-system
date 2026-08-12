@@ -113,7 +113,14 @@
         "solidActive": "#EE5A5A"
       },
       "backdrop": "rgba(0, 0, 0, 0.6)",
-      "primaryOnSoft": "#7DCFC1"
+      "primaryOnSoft": "#7DCFC1",
+      "feedbackGraphic": {
+        "primary": "#40B5A2",
+        "error": "#EF4444",
+        "success": "#22C55E",
+        "warning": "#F59E0B",
+        "info": "#3B82F6"
+      }
     },
     "light": {
       "surface": {
@@ -154,7 +161,14 @@
         "solidActive": "#991B1B"
       },
       "backdrop": "rgba(23, 32, 46, 0.5)",
-      "primaryOnSoft": "#21695D"
+      "primaryOnSoft": "#21695D",
+      "feedbackGraphic": {
+        "primary": "#2A7F71",
+        "error": "#DC2626",
+        "success": "#15803D",
+        "warning": "#B45309",
+        "info": "#2563EB"
+      }
     }
   }
 }
