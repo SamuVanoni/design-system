@@ -7,99 +7,118 @@
 // deste pacote, senao as classes dos componentes nao entram no CSS final).
 // Ver tailwind.config.js na raiz para o exemplo local.
 
+/**
+ * Torna um token CSS-var compativel com os modificadores de opacidade do Tailwind
+ * (`bg-success/10`, `border-primary-500/30`).
+ *
+ * Sem isto o Tailwind DESCARTA a utility em silencio: ele nao consegue injetar
+ * alfa num `var()` que guarda um hex, entao a classe simplesmente nao vai parar
+ * no CSS e o elemento fica sem fundo/borda nenhum. Foi o que aconteceu com a
+ * StatusPill e o CargoChip — pareciam "sem estilo" no tema escuro.
+ *
+ * A alternativa canonica seria guardar os tokens como triplas de canal
+ * ("34 197 94") e usar rgb(var(--x) / <alpha-value>), mas isso obrigaria a
+ * reescrever todos os tokens e quebraria quem le a var direto no CSS.
+ * `color-mix` resolve mantendo os hex intactos.
+ */
+const tom = (nome) => ({ opacityValue }) =>
+  opacityValue === undefined
+    ? `var(${nome})`
+    : `color-mix(in srgb, var(${nome}) calc(${opacityValue} * 100%), transparent)`;
+
 module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
       colors: {
         primary: {
-          50:  'var(--color-primary-50)',
-          100: 'var(--color-primary-100)',
-          200: 'var(--color-primary-200)',
-          300: 'var(--color-primary-300)',
-          400: 'var(--color-primary-400)',
-          500: 'var(--color-primary-500)',
-          600: 'var(--color-primary-600)',
-          700: 'var(--color-primary-700)',
-          800: 'var(--color-primary-800)',
-          900: 'var(--color-primary-900)',
-          DEFAULT: 'var(--color-primary-500)',
+          50:  tom('--color-primary-50'),
+          100: tom('--color-primary-100'),
+          200: tom('--color-primary-200'),
+          300: tom('--color-primary-300'),
+          400: tom('--color-primary-400'),
+          500: tom('--color-primary-500'),
+          600: tom('--color-primary-600'),
+          700: tom('--color-primary-700'),
+          800: tom('--color-primary-800'),
+          900: tom('--color-primary-900'),
+          DEFAULT: tom('--color-primary-500'),
         },
         secondary: {
-          50:  'var(--color-secondary-50)',
-          100: 'var(--color-secondary-100)',
-          200: 'var(--color-secondary-200)',
-          300: 'var(--color-secondary-300)',
-          400: 'var(--color-secondary-400)',
-          500: 'var(--color-secondary-500)',
-          600: 'var(--color-secondary-600)',
-          700: 'var(--color-secondary-700)',
-          800: 'var(--color-secondary-800)',
-          900: 'var(--color-secondary-900)',
-          DEFAULT: 'var(--color-secondary-500)',
+          50:  tom('--color-secondary-50'),
+          100: tom('--color-secondary-100'),
+          200: tom('--color-secondary-200'),
+          300: tom('--color-secondary-300'),
+          400: tom('--color-secondary-400'),
+          500: tom('--color-secondary-500'),
+          600: tom('--color-secondary-600'),
+          700: tom('--color-secondary-700'),
+          800: tom('--color-secondary-800'),
+          900: tom('--color-secondary-900'),
+          DEFAULT: tom('--color-secondary-500'),
         },
         neutral: {
-          0:   'var(--color-neutral-0)',
-          50:  'var(--color-neutral-50)',
-          100: 'var(--color-neutral-100)',
-          200: 'var(--color-neutral-200)',
-          300: 'var(--color-neutral-300)',
-          400: 'var(--color-neutral-400)',
-          500: 'var(--color-neutral-500)',
-          600: 'var(--color-neutral-600)',
-          700: 'var(--color-neutral-700)',
-          800: 'var(--color-neutral-800)',
-          900: 'var(--color-neutral-900)',
-          950: 'var(--color-neutral-950)',
+          0:   tom('--color-neutral-0'),
+          50:  tom('--color-neutral-50'),
+          100: tom('--color-neutral-100'),
+          200: tom('--color-neutral-200'),
+          300: tom('--color-neutral-300'),
+          400: tom('--color-neutral-400'),
+          500: tom('--color-neutral-500'),
+          600: tom('--color-neutral-600'),
+          700: tom('--color-neutral-700'),
+          800: tom('--color-neutral-800'),
+          900: tom('--color-neutral-900'),
+          950: tom('--color-neutral-950'),
         },
         // Tokens semânticos: prefira usá-los nos componentes.
         surface: {
-          base:       'var(--surface-base)',
-          elevated:   'var(--surface-elevated)',
-          overlay:    'var(--surface-overlay)',
-          muted:      'var(--surface-muted)',
-          mutedHover: 'var(--surface-muted-hover)',
+          base:       tom('--surface-base'),
+          elevated:   tom('--surface-elevated'),
+          overlay:    tom('--surface-overlay'),
+          muted:      tom('--surface-muted'),
+          mutedHover: tom('--surface-muted-hover'),
         },
         border: {
-          subtle:  'var(--border-subtle)',
-          DEFAULT: 'var(--border-default)',
-          strong:  'var(--border-strong)',
-          focus:   'var(--border-focus)',
+          subtle:  tom('--border-subtle'),
+          DEFAULT: tom('--border-default'),
+          strong:  tom('--border-strong'),
+          focus:   tom('--border-focus'),
         },
         text: {
-          primary:      'var(--text-primary)',
-          secondary:    'var(--text-secondary)',
-          tertiary:     'var(--text-tertiary)',
-          disabled:     'var(--text-disabled)',
-          inverse:      'var(--text-inverse)',
-          onPrimary:    'var(--text-on-primary)',
-          onSecondary:  'var(--text-on-secondary)',
-          onMuted:      'var(--text-on-muted)',
-          onAction:     'var(--text-on-action)',
-          link:         'var(--text-link)',
-          linkHover:    'var(--text-link-hover)',
+          primary:      tom('--text-primary'),
+          secondary:    tom('--text-secondary'),
+          tertiary:     tom('--text-tertiary'),
+          disabled:     tom('--text-disabled'),
+          inverse:      tom('--text-inverse'),
+          onPrimary:    tom('--text-on-primary'),
+          onSecondary:  tom('--text-on-secondary'),
+          onMuted:      tom('--text-on-muted'),
+          onAction:     tom('--text-on-action'),
+          link:         tom('--text-link'),
+          linkHover:    tom('--text-link-hover'),
         },
         // Acao primaria: inverte entre os temas (ver variables.css). Separado do
-        // `primary`, que continua sendo o cobre da marca e agora significa so estado.
+        // `primary`, que e o acento da marca e significa so estado.
         action: {
-          DEFAULT: 'var(--action-solid)',
-          hover:   'var(--action-solid-hover)',
-          active:  'var(--action-solid-active)',
+          DEFAULT: tom('--action-solid'),
+          hover:   tom('--action-solid-hover'),
+          active:  tom('--action-solid-active'),
         },
-        error:   'var(--color-error)',
-        success: 'var(--color-success)',
-        warning: 'var(--color-warning)',
-        info:    'var(--color-info)',
-        'error-soft':   'var(--color-error-soft)',
-        'success-soft': 'var(--color-success-soft)',
-        'warning-soft': 'var(--color-warning-soft)',
-        'info-soft':    'var(--color-info-soft)',
-        'error-onSoft':   'var(--fb-error-text)',
-        'success-onSoft': 'var(--fb-success-text)',
-        'warning-onSoft': 'var(--fb-warning-text)',
-        'info-onSoft':    'var(--fb-info-text)',
-        'primary-onSoft': 'var(--primary-onSoft)',
-        backdrop:       'var(--backdrop)',
+        error:   tom('--color-error'),
+        success: tom('--color-success'),
+        warning: tom('--color-warning'),
+        info:    tom('--color-info'),
+        'error-soft':   tom('--color-error-soft'),
+        'success-soft': tom('--color-success-soft'),
+        'warning-soft': tom('--color-warning-soft'),
+        'info-soft':    tom('--color-info-soft'),
+        'error-onSoft':   tom('--fb-error-text'),
+        'success-onSoft': tom('--fb-success-text'),
+        'warning-onSoft': tom('--fb-warning-text'),
+        'info-onSoft':    tom('--fb-info-text'),
+        'primary-onSoft': tom('--primary-onSoft'),
+        backdrop:       tom('--backdrop'),
       },
       fontFamily: {
         // Aponta pro TOKEN, nao pro nome literal da familia. Loaders que

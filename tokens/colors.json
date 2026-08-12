@@ -6,21 +6,21 @@
       "dark",
       "light"
     ],
-    "version": "0.5.0"
+    "version": "0.6.0"
   },
   "primary": {
-    "50": "#FDF6ED",
-    "100": "#F8E5CE",
-    "200": "#F2CB9C",
-    "300": "#EAAF66",
-    "400": "#E39535",
-    "500": "#C97C1B",
-    "600": "#AC6815",
-    "700": "#8A530F",
-    "800": "#663D0A",
-    "900": "#422706",
-    "description": "Cobre da marca Inonav. Desde v0.5.0 significa ESTADO (foco, selecao, aba ativa, switch ligado), nao acao — o botao primario usa os tokens action-*. Ancorado no #C97C1B do logo (passo 500).",
-    "base": "#C97C1B"
+    "50": "#F0F9F8",
+    "100": "#D9F2EE",
+    "200": "#B0E3DB",
+    "300": "#7DCFC1",
+    "400": "#40B5A2",
+    "500": "#2A7F71",
+    "600": "#21695D",
+    "700": "#195249",
+    "800": "#123F38",
+    "900": "#0C2C27",
+    "description": "Verdigris (cobre oxidado) — acento da marca Inonav desde v0.6.0, substituindo o cobre #C97C1B. Significa ESTADO (foco, selecao, aba ativa, switch ligado), nao acao: o botao primario usa os tokens action-*. Matiz 170, a 28 graus do verde de sucesso (142) — mesma familia, sem confundir foco com 'deu certo'.",
+    "base": "#2A7F71"
   },
   "secondary": {
     "50": "#ECF9F6",
@@ -86,7 +86,7 @@
         "subtle": "#323C4E",
         "default": "#353F50",
         "strong": "#4C5667",
-        "focus": "#C97C1B"
+        "focus": "#2A7F71"
       },
       "text": {
         "primary": "#E2E5E9",
@@ -106,7 +106,8 @@
         "solidHover": "#F0F2F5",
         "solidActive": "#C2C8D1"
       },
-      "backdrop": "rgba(0, 0, 0, 0.6)"
+      "backdrop": "rgba(0, 0, 0, 0.6)",
+      "primaryOnSoft": "#7DCFC1"
     },
     "light": {
       "surface": {
@@ -120,7 +121,7 @@
         "subtle": "#F0F2F5",
         "default": "#DEE2E7",
         "strong": "#C2C8D1",
-        "focus": "#C97C1B"
+        "focus": "#2A7F71"
       },
       "text": {
         "primary": "#17202E",
@@ -140,7 +141,8 @@
         "solidHover": "#232D3E",
         "solidActive": "#0D131C"
       },
-      "backdrop": "rgba(23, 32, 46, 0.5)"
+      "backdrop": "rgba(23, 32, 46, 0.5)",
+      "primaryOnSoft": "#21695D"
     }
   }
 }

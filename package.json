@@ -1,6 +1,6 @@
 {
   "name": "@samuvanoni/design-system",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Design system React para SaaS B2B — dark/light via data-theme, tokens semânticos.",
   "license": "UNLICENSED",
   "repository": {

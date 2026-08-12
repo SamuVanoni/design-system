@@ -76,15 +76,33 @@ Razão: semânticos mudam sozinhos entre dark/light. Escalares travam a UI em um
 - Info (aviso discreto): `bg-surface-muted text-text-onMuted` + ícone `i` em `text-info-onSoft`. Use `<Button variant="info">` — o ícone vem automático.
 - Nunca use `text-white` sobre `bg-primary-500` — falha AA. Sempre `text-text-onPrimary`.
 
-### O cobre significa ESTADO, não ação (desde v0.5.0)
+### O acento significa ESTADO, não ação (desde v0.5.0)
 
-`primary-500` é o cobre da marca e aparece **só** onde a UI diz *isto está selecionado, ativo ou
-com foco*: anel de foco, checkbox marcado, radio, switch ligado, aba ativa, passo atual do
-Stepper, dia selecionado no calendário, ProgressBar.
+`primary-500` é o **verdigris `#2A7F71`** (era o cobre `#C97C1B` até a v0.6.0) e aparece **só**
+onde a UI diz *isto está selecionado, ativo ou com foco*: anel de foco, checkbox marcado, radio,
+switch ligado, aba ativa, passo atual do Stepper, dia selecionado no calendário, ProgressBar.
 
 **Não use `bg-primary-500` para um botão, um cabeçalho ou um bloco decorativo.** Assim que o
-cobre volta a preencher área grande, ele deixa de marcar estado e a distinção se perde. Ação
+acento volta a preencher área grande, ele deixa de marcar estado e a distinção se perde. Ação
 sólida é `bg-action`; texto de link é neutro sublinhado (`text-text-link` + `underline`).
+
+### Cor de status por SEVERIDADE (desde v0.6.0)
+
+Cápsula colorida **só** quando o estado exige ação: `error` e `warning`. `success` e `info` são
+cápsula neutra com marcador colorido. Vale para `Badge` no kit e para qualquer pílula que você
+criar. Cor que aparece em toda coluna não avisa nada — um vencimento real precisa saltar mais
+que um "em dia".
+
+Use os fundos translúcidos (`bg-error/16`, `bg-warning/12`), **não** os `-soft` opacos: no tema
+escuro `-soft` é um bloco saturado que sobre o navy vira mancha, e reprovava AA (3,62:1).
+
+### Opacidade em token (`bg-success/10`) exige `tom()` no preset
+
+Todo token de cor passa por `tom()` em `tailwind.preset.cjs`, que devolve `color-mix` quando há
+modificador de opacidade. **Se você adicionar um token novo como string `'var(--x)'` crua, os
+modificadores de opacidade dele somem do CSS sem erro nenhum** — a classe simplesmente não é
+gerada e o elemento fica sem fundo. Foi um bug real: a `StatusPill` ficou sem cápsula por
+várias versões.
 
 ### Tipografia (classes prontas)
 
