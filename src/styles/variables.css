@@ -66,6 +66,16 @@
   --color-warning: #F59E0B;
   --color-info:    #3B82F6;
 
+  /* Texto sobre o vermelho solido (botao danger). NAO herda --text-on-primary:
+     o danger nao e preenchido com o acento, e com --color-error, que tem
+     luminancia propria. Ate a v0.6.1 ele pegava --text-on-primary emprestado e
+     mudava junto sem querer. O vermelho e invariante entre temas, entao este
+     token tambem e.
+     ATENCAO: #EF4444 x navy da 4,35:1 — abaixo de AA para texto. Branco daria
+     3,76:1, pior. Corrigir de verdade exige escurecer o preenchimento do danger
+     (ex.: #DC2626 com branco = 4,83:1), o que e decisao de cor separada. */
+  --text-on-danger: var(--color-neutral-900);
+
   /* ---------- Typography ---------- */
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -185,7 +195,11 @@
   --text-tertiary:     var(--color-neutral-400);
   --text-disabled:     var(--color-neutral-500);
   --text-inverse:      var(--color-neutral-900);
-  --text-on-primary:   var(--color-neutral-900);
+  /* Branco desde a v0.6.2. Enquanto o acento foi o cobre #C97C1B, o navy era a
+     unica escolha legivel (4,98:1 contra 3,29:1 do branco). O verdigris #2A7F71
+     inverteu a relacao: branco 4,80:1 (AA) x navy 3,41:1 (reprova para texto).
+     Trocar o acento em v0.6.0 e deixar este token parado foi o descuido. */
+  --text-on-primary:   var(--color-neutral-0);
   --text-on-secondary: var(--color-neutral-900);
   /* Link e texto neutro sublinhado, nao colorido. O acento da marca deixou de
      carregar texto em v0.5.0 — ele passou a significar so estado (foco, selecao,
@@ -247,7 +261,9 @@
   --text-tertiary:     var(--color-neutral-500);
   --text-disabled:     var(--color-neutral-400);
   --text-inverse:      var(--color-neutral-50);
-  --text-on-primary:   var(--color-neutral-900);
+  /* Mesmo valor do escuro: o acento nao muda entre temas, entao o texto sobre
+     ele tambem nao muda. Ver o comentario no bloco escuro. */
+  --text-on-primary:   var(--color-neutral-0);
   --text-on-secondary: var(--color-neutral-900);
   --text-link:         var(--text-primary);
   --text-link-hover:   var(--text-secondary);

@@ -93,6 +93,7 @@ module.exports = {
           inverse:      tom('--text-inverse'),
           onPrimary:    tom('--text-on-primary'),
           onSecondary:  tom('--text-on-secondary'),
+          onDanger:     tom('--text-on-danger'),
           onMuted:      tom('--text-on-muted'),
           onAction:     tom('--text-on-action'),
           link:         tom('--text-link'),

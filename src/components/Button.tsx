@@ -60,7 +60,8 @@ const variants: Record<Variant, string> = {
     'bg-transparent text-text-primary hover:bg-surface-elevated active:bg-surface-overlay ' +
     'focus-visible:ring-primary-500',
   danger:
-    'bg-error text-text-onPrimary hover:opacity-90 active:opacity-80 ' +
+    // onDanger, nao onPrimary: o preenchimento aqui e o vermelho, nao o acento.
+    'bg-error text-text-onDanger hover:opacity-90 active:opacity-80 ' +
     'focus-visible:ring-error',
 };
 

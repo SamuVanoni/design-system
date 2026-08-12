@@ -6,7 +6,7 @@
       "dark",
       "light"
     ],
-    "version": "0.6.1"
+    "version": "0.6.2"
   },
   "primary": {
     "50": "#F0F9F8",
@@ -94,8 +94,9 @@
         "tertiary": "#929BAA",
         "disabled": "#677283",
         "inverse": "#17202E",
-        "onPrimary": "#17202E",
+        "onPrimary": "#FFFFFF",
         "onSecondary": "#17202E",
+        "onDanger": "#17202E",
         "onAction": "#17202E",
         "onMuted": "#DEE2E7",
         "link": "#E2E5E9",
@@ -129,8 +130,9 @@
         "tertiary": "#677283",
         "disabled": "#929BAA",
         "inverse": "#F9FAFB",
-        "onPrimary": "#17202E",
+        "onPrimary": "#FFFFFF",
         "onSecondary": "#17202E",
+        "onDanger": "#17202E",
         "onAction": "#FFFFFF",
         "onMuted": "#353F50",
         "link": "#17202E",

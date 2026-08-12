@@ -74,7 +74,8 @@ Razão: semânticos mudam sozinhos entre dark/light. Escalares travam a UI em um
 - Primary (sólido neutro): `bg-action text-text-onAction`. **Inverte por tema** — navy `#17202E` no claro, `#E2E5E9` no escuro. Um preenchimento navy sobre fundo navy teria 1,4:1 de separação e o botão sumiria; por isso `--action-*` tem valor próprio em cada tema.
 - Secondary (contorno neutro): `border border-border bg-transparent text-text-primary`.
 - Info (aviso discreto): `bg-surface-muted text-text-onMuted` + ícone `i` em `text-info-onSoft`. Use `<Button variant="info">` — o ícone vem automático.
-- Nunca use `text-white` sobre `bg-primary-500` — falha AA. Sempre `text-text-onPrimary`.
+- Sobre `bg-primary-500` use **sempre `text-text-onPrimary`** — nunca um literal (`text-white`, `text-neutral-900`). Desde a v0.6.2 esse token vale branco (4,80:1 sobre o verdigris); enquanto o acento foi o cobre ele valia navy. É exatamente por trocar de valor com o acento que ele existe: quem tinha escrito `text-neutral-900` na mão ficou em 3,41:1 sem perceber.
+- Danger é `text-text-onDanger`, não `onPrimary` — o preenchimento ali é `--color-error`, não o acento.
 
 ### O acento significa ESTADO, não ação (desde v0.5.0)
 
