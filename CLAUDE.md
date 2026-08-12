@@ -86,6 +86,21 @@ Razão: semânticos mudam sozinhos entre dark/light. Escalares travam a UI em um
 - Info:    `bg-info-soft`    + `text-info-onSoft`
 - Primary sobre soft: `text-primary-onSoft` (nunca `text-primary-400/500` direto sobre soft — falha AA no light)
 
+**A cor base (`text-error`, `text-success`, `text-warning`, `text-info`) nunca carrega
+texto.** Ela é cor de **estado** — borda de campo inválido, ponto do Badge, barra do
+Progress, ícone de lixeira — e tem **um valor só** para os dois temas, então como texto
+reprova AA em pelo menos um deles:
+
+| | escuro | claro | com `-onSoft` |
+|---|---|---|---|
+| `error` | 3,68 ❌ | 3,76 ❌ | 5,01 / 6,47 ✅ |
+| `success` | 6,08 ✅ | **2,28 ❌** | 7,95 / 5,02 ✅ |
+| `warning` | 6,45 ✅ | **2,15 ❌** | 8,30 / 5,02 ✅ |
+| `info` | 3,77 ❌ | 3,68 ❌ | 5,45 / 6,70 ✅ |
+
+O nome `-onSoft` vem da origem, mas o papel do token é **"esta cor de feedback quando
+ela é texto"** — vale sobre qualquer superfície, não só a `-soft`.
+
 ### Botões
 
 - Primary (sólido neutro): `bg-action text-text-onAction`. **Inverte por tema** — navy `#17202E` no claro, `#E2E5E9` no escuro. Um preenchimento navy sobre fundo navy teria 1,4:1 de separação e o botão sumiria; por isso `--action-*` tem valor próprio em cada tema.

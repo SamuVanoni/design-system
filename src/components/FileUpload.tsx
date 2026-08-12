@@ -199,8 +199,10 @@ export function FileUpload({
 
       {errors.length > 0 && (
         <ul className="mt-2 space-y-1" role="alert">
+          {/* -onSoft, nao `text-error`: aquela e a cor de ESTADO (a borda do
+              dropzone usa ela) e reprova AA como texto nos dois temas. */}
           {errors.map((msg, i) => (
-            <li key={i} className="flex items-start gap-2 text-caption text-error">
+            <li key={i} className="flex items-start gap-2 text-caption text-error-onSoft">
               <AlertCircle className="mt-px h-3.5 w-3.5 shrink-0" aria-hidden />
               {msg}
             </li>

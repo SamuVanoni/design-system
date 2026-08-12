@@ -110,7 +110,8 @@ function Item({ onSelect, children, icon, shortcut, disabled, keywords, tone = '
         'transition-colors',
         'data-[selected=true]:bg-surface-elevated',
         'data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-40',
-        tone === 'danger' && 'text-error data-[selected=true]:bg-error-soft',
+        // -onSoft, nao a cor base. Ver a nota em HelperText.
+        tone === 'danger' && 'text-error-onSoft data-[selected=true]:bg-error-soft',
       )}
     >
       {icon && <span className="shrink-0 text-text-tertiary">{icon}</span>}

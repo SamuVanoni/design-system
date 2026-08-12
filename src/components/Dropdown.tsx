@@ -60,7 +60,9 @@ function DropdownItem({ children, onSelect, tone = 'default', disabled }: ItemPr
     <DM.Item
       onSelect={onSelect}
       disabled={disabled}
-      className={cn(itemBase, tone === 'danger' && 'text-error data-[highlighted]:bg-error-soft')}
+      // -onSoft, nao a cor base: `text-error` reprova AA como texto (2,82:1
+      // sobre o overlay escuro). Ver a nota em HelperText.
+      className={cn(itemBase, tone === 'danger' && 'text-error-onSoft data-[highlighted]:bg-error-soft')}
     >
       {children}
     </DM.Item>
