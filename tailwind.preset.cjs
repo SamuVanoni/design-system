@@ -75,8 +75,16 @@ module.exports = {
           onPrimary:    'var(--text-on-primary)',
           onSecondary:  'var(--text-on-secondary)',
           onMuted:      'var(--text-on-muted)',
+          onAction:     'var(--text-on-action)',
           link:         'var(--text-link)',
           linkHover:    'var(--text-link-hover)',
+        },
+        // Acao primaria: inverte entre os temas (ver variables.css). Separado do
+        // `primary`, que continua sendo o cobre da marca e agora significa so estado.
+        action: {
+          DEFAULT: 'var(--action-solid)',
+          hover:   'var(--action-solid-hover)',
+          active:  'var(--action-solid-active)',
         },
         error:   'var(--color-error)',
         success: 'var(--color-success)',

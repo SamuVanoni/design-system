@@ -71,10 +71,20 @@ Razão: semânticos mudam sozinhos entre dark/light. Escalares travam a UI em um
 
 ### Botões
 
-- Primary (cobre): `bg-primary-500 text-text-onPrimary`
-- Secondary (cobre oxidado): `bg-secondary-500 text-text-onSecondary`
+- Primary (sólido neutro): `bg-action text-text-onAction`. **Inverte por tema** — navy `#17202E` no claro, `#E2E5E9` no escuro. Um preenchimento navy sobre fundo navy teria 1,4:1 de separação e o botão sumiria; por isso `--action-*` tem valor próprio em cada tema.
+- Secondary (contorno neutro): `border border-border bg-transparent text-text-primary`.
 - Info (aviso discreto): `bg-surface-muted text-text-onMuted` + ícone `i` em `text-info-onSoft`. Use `<Button variant="info">` — o ícone vem automático.
 - Nunca use `text-white` sobre `bg-primary-500` — falha AA. Sempre `text-text-onPrimary`.
+
+### O cobre significa ESTADO, não ação (desde v0.5.0)
+
+`primary-500` é o cobre da marca e aparece **só** onde a UI diz *isto está selecionado, ativo ou
+com foco*: anel de foco, checkbox marcado, radio, switch ligado, aba ativa, passo atual do
+Stepper, dia selecionado no calendário, ProgressBar.
+
+**Não use `bg-primary-500` para um botão, um cabeçalho ou um bloco decorativo.** Assim que o
+cobre volta a preencher área grande, ele deixa de marcar estado e a distinção se perde. Ação
+sólida é `bg-action`; texto de link é neutro sublinhado (`text-text-link` + `underline`).
 
 ### Tipografia (classes prontas)
 

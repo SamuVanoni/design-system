@@ -14,7 +14,7 @@ Todos os componentes se importam de `@/components`. Detalhes em `src/components/
 
 | Componente | Props principais | Arquivo |
 |---|---|---|
-| `Button` | `variant` (primary/secondary/**info**/ghost/**danger**), `size` (sm/md/lg), `loading`, `leftIcon`, `rightIcon`, `fullWidth`. `info` = aviso discreto: fundo cinza translúcido + ícone "i" azul automático. `danger` = vermelho sólido, só para ações destrutivas | `Button.tsx` |
+| `Button` | `variant` (primary/secondary/**info**/ghost/**danger**), `size` (sm/md/lg), `loading`, `leftIcon`, `rightIcon`, `fullWidth`. `primary` = sólido neutro que **inverte por tema** (navy no claro, claro no escuro) — não usa o cobre. `secondary` = contorno neutro. `info` = aviso discreto: fundo cinza translúcido + ícone "i" azul automático. `danger` = vermelho sólido, só para ações destrutivas | `Button.tsx` |
 | `Badge` | `variant` (default/primary/success/warning/error/info), `count`, `max`, `dot`, `icon` | `Badge.tsx` |
 | `Label` | `htmlFor`, `required`, `disabled` | `Label.tsx` |
 | `HelperText` | `tone` (default/error/success) | `HelperText.tsx` |

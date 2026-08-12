@@ -6,7 +6,7 @@
       "dark",
       "light"
     ],
-    "version": "0.3.0"
+    "version": "0.5.0"
   },
   "primary": {
     "50": "#FDF6ED",
@@ -19,7 +19,7 @@
     "700": "#8A530F",
     "800": "#663D0A",
     "900": "#422706",
-    "description": "Cobre da marca Inonav - CTAs principais. Ancorado no #C97C1B do logo (passo 500). Valida AA (4.98:1) contra text-onPrimary #17202E.",
+    "description": "Cobre da marca Inonav. Desde v0.5.0 significa ESTADO (foco, selecao, aba ativa, switch ligado), nao acao — o botao primario usa os tokens action-*. Ancorado no #C97C1B do logo (passo 500).",
     "base": "#C97C1B"
   },
   "secondary": {
@@ -33,7 +33,7 @@
     "700": "#21645A",
     "800": "#194B44",
     "900": "#11332E",
-    "description": "Cobre oxidado (verdigris/pátina) - ações alternativas e links. 500 valida AA (5.31:1) contra text-onSecondary #111827.",
+    "description": "Cobre oxidado (verdigris/pátina). Desde v0.5.0 nenhum componente do kit usa esta rampa: o botão secundário virou contorno neutro e os links viraram neutros. Fica disponível para consumidores.",
     "base": "#359C8B"
   },
   "neutral": {
@@ -76,28 +76,35 @@
   "semantic": {
     "dark": {
       "surface": {
-        "base": "#111827",
-        "elevated": "#1F2937",
-        "overlay": "#374151",
+        "base": "#17202E",
+        "elevated": "#232D3E",
+        "overlay": "#353F50",
         "muted": "rgba(255, 255, 255, 0.06)",
         "mutedHover": "rgba(255, 255, 255, 0.10)"
       },
       "border": {
-        "subtle": "#1F2937",
-        "default": "#374151",
-        "strong": "#4B5563",
-        "focus": "#C1783A"
+        "subtle": "#323C4E",
+        "default": "#353F50",
+        "strong": "#4C5667",
+        "focus": "#C97C1B"
       },
       "text": {
-        "primary": "#F9FAFB",
-        "secondary": "#D1D5DB",
-        "tertiary": "#9CA3AF",
-        "disabled": "#6B7280",
-        "inverse": "#111827",
-        "onPrimary": "#111827",
-        "onSecondary": "#111827",
-        "link": "#48B4A1",
-        "linkHover": "#6CCBBA"
+        "primary": "#E2E5E9",
+        "secondary": "#B8BDC7",
+        "tertiary": "#929BAA",
+        "disabled": "#677283",
+        "inverse": "#17202E",
+        "onPrimary": "#17202E",
+        "onSecondary": "#17202E",
+        "onAction": "#17202E",
+        "onMuted": "#DEE2E7",
+        "link": "#E2E5E9",
+        "linkHover": "#B8BDC7"
+      },
+      "action": {
+        "solid": "#E2E5E9",
+        "solidHover": "#F0F2F5",
+        "solidActive": "#C2C8D1"
       },
       "backdrop": "rgba(0, 0, 0, 0.6)"
     },
@@ -106,27 +113,34 @@
         "base": "#F9FAFB",
         "elevated": "#FFFFFF",
         "overlay": "#FFFFFF",
-        "muted": "rgba(17, 24, 39, 0.05)",
-        "mutedHover": "rgba(17, 24, 39, 0.09)"
+        "muted": "rgba(23, 32, 46, 0.05)",
+        "mutedHover": "rgba(23, 32, 46, 0.09)"
       },
       "border": {
-        "subtle": "#F3F4F6",
-        "default": "#E5E7EB",
-        "strong": "#D1D5DB",
-        "focus": "#C1783A"
+        "subtle": "#F0F2F5",
+        "default": "#DEE2E7",
+        "strong": "#C2C8D1",
+        "focus": "#C97C1B"
       },
       "text": {
-        "primary": "#111827",
-        "secondary": "#374151",
-        "tertiary": "#6B7280",
-        "disabled": "#9CA3AF",
+        "primary": "#17202E",
+        "secondary": "#353F50",
+        "tertiary": "#677283",
+        "disabled": "#929BAA",
         "inverse": "#F9FAFB",
-        "onPrimary": "#111827",
-        "onSecondary": "#111827",
-        "link": "#21645A",
-        "linkHover": "#194B44"
+        "onPrimary": "#17202E",
+        "onSecondary": "#17202E",
+        "onAction": "#FFFFFF",
+        "onMuted": "#353F50",
+        "link": "#17202E",
+        "linkHover": "#353F50"
       },
-      "backdrop": "rgba(17, 24, 39, 0.5)"
+      "action": {
+        "solid": "#17202E",
+        "solidHover": "#232D3E",
+        "solidActive": "#0D131C"
+      },
+      "backdrop": "rgba(23, 32, 46, 0.5)"
     }
   }
 }

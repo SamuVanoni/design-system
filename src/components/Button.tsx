@@ -5,8 +5,10 @@ import { cn } from '../lib/cn';
 /**
  * Button
  * Variantes:
- *  - primary   (cobre, CTA principal)
- *  - secondary (cobre oxidado, ações alternativas)
+ *  - primary   (sólido neutro que inverte por tema — navy no claro, claro no escuro.
+ *               NÃO usa o cobre: desde v0.5.0 o acento da marca significa só estado,
+ *               não ação. Ver --action-* em variables.css.)
+ *  - secondary (contorno neutro, ações alternativas)
  *  - info      (discreta: fundo cinza translúcido + ícone "i" azul — avisos e dicas,
  *               sem competir com primary/secondary. O ícone é injetado automaticamente;
  *               passe `leftIcon` para sobrescrever ou `leftIcon={null}` para remover.)
@@ -45,11 +47,12 @@ const sizes: Record<Size, string> = {
 
 const variants: Record<Variant, string> = {
   primary:
-    'bg-primary-500 text-text-onPrimary hover:bg-primary-400 active:bg-primary-600 ' +
+    'bg-action text-text-onAction hover:bg-action-hover active:bg-action-active ' +
     'focus-visible:ring-primary-500',
   secondary:
-    'bg-secondary-500 text-text-onSecondary hover:bg-secondary-400 active:bg-secondary-600 ' +
-    'focus-visible:ring-secondary-500',
+    'bg-transparent text-text-primary border border-border ' +
+    'hover:bg-surface-muted active:bg-surface-mutedHover ' +
+    'focus-visible:ring-primary-500',
   info:
     'bg-surface-muted text-text-onMuted font-normal hover:bg-surface-mutedHover active:bg-surface-mutedHover ' +
     'focus-visible:ring-info',

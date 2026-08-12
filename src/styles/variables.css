@@ -181,9 +181,21 @@
   --text-inverse:      var(--color-neutral-900);
   --text-on-primary:   var(--color-neutral-900);
   --text-on-secondary: var(--color-neutral-900);
-  --text-link:         var(--color-secondary-400);
-  --text-link-hover:   var(--color-secondary-300);
+  /* Link e texto neutro sublinhado, nao colorido. O acento da marca deixou de
+     carregar texto em v0.5.0 — ele passou a significar so estado (foco, selecao,
+     aba ativa). Um link colorido voltaria a competir com esse significado. */
+  --text-link:         var(--text-primary);
+  --text-link-hover:   var(--text-secondary);
   --text-on-muted:     var(--color-neutral-200);
+
+  /* ---------- Acao primaria (botao solido) ----------
+     NAO e o primary-500. O botao inverte entre os temas: escuro sobre fundo
+     claro, claro sobre fundo escuro. Um preenchimento navy sobre fundo navy
+     teria 1.4:1 de separacao — o botao sumiria. Ver --action-* no tema claro. */
+  --action-solid:        #E2E5E9;
+  --action-solid-hover:  var(--color-neutral-100);
+  --action-solid-active: var(--color-neutral-300);
+  --text-on-action:      var(--color-neutral-900);
 
   --color-error-soft:   #7F1D1D;
   --color-success-soft: #14532D;
@@ -231,9 +243,15 @@
   --text-inverse:      var(--color-neutral-50);
   --text-on-primary:   var(--color-neutral-900);
   --text-on-secondary: var(--color-neutral-900);
-  --text-link:         var(--color-secondary-700);
-  --text-link-hover:   var(--color-secondary-800);
+  --text-link:         var(--text-primary);
+  --text-link-hover:   var(--text-secondary);
   --text-on-muted:     var(--color-neutral-700);
+
+  /* ---------- Acao primaria (botao solido) ---------- */
+  --action-solid:        var(--color-neutral-900);
+  --action-solid-hover:  var(--color-neutral-800);
+  --action-solid-active: var(--color-neutral-950);
+  --text-on-action:      var(--color-neutral-0);
 
   --color-error-soft:   #FEE2E2;
   --color-success-soft: #DCFCE7;
