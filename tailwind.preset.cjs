@@ -120,6 +120,14 @@ module.exports = {
         'primary-onSoft': tom('--primary-onSoft'),
         backdrop:       tom('--backdrop'),
       },
+      // A escala padrao do Tailwind so tem 0,5,10,20,25,30,40,50… — um `/15` ou
+      // `/12` NAO gera classe nenhuma, e sem erro. Junto com o `tom()` acima,
+      // esta era a segunda metade do bug da StatusPill: mesmo com color-mix, um
+      // `bg-primary-500/15` continuaria sumindo por nao existir o passo 15.
+      opacity: {
+        12: '0.12', 15: '0.15', 16: '0.16', 18: '0.18',
+        35: '0.35', 45: '0.45', 55: '0.55', 65: '0.65', 85: '0.85',
+      },
       fontFamily: {
         // Aponta pro TOKEN, nao pro nome literal da familia. Loaders que
         // auto-hospedam (next/font) geram um nome com hash e o expoem numa CSS
