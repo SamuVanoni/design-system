@@ -93,6 +93,7 @@ Dentro deste repo os imports são relativos (`../lib/cn`); nos SaaS é sempre o 
 | Ação sólida | `--action-*`, neutro que inverte por tema | Navy no claro, claro no escuro. Separada da primária justamente para o acento não preencher área grande |
 | Texto sobre a primária | branco (v0.6.2) | Era navy quando o acento era o cobre. O verdigris é mais escuro e inverteu a relação: branco 4,80:1, navy 3,41:1 |
 | Composição de classe | `tailwind-merge` no `cn` (v0.6.3) | Numa colisão a última vence, e o `className` é sempre o último argumento — antes ele perdia para a variante conforme a ordem do CSS gerado |
+| Ação destrutiva | `--danger-*`, vermelho que inverte por tema (v0.7.0) | Mesma razão do `--action-*`: escurecer o vermelho para o rótulo branco passar derruba a silhueta do botão contra o navy do modal (2,87:1) |
 | Secundária |  `#359C8B` | Rampa herdada; **nenhum componente do kit usa** desde a v0.5.0. Fica disponível para consumidores |
 | Tipografia | Inter (carregada pela app, nao pelo kit) | Neutra, otima em tabela e numero — leitura de SaaS B2B serio |
 | Ícones | `lucide-react` | Tree-shakeable, 1000+ ícones |
@@ -245,7 +246,9 @@ Prefira **tokens semânticos** em vez de escalas cruas — assim mudar um tom af
 | `bg-backdrop` | Overlay atrás de modais |
 | `bg-action` + `text-text-onAction` | Botão sólido de ação (inverte por tema) |
 | `text-text-onPrimary` | Conteúdo sobre `bg-primary-500` — branco desde a v0.6.2 (4,80:1 sobre o verdigris) |
-| `text-text-onDanger` | Conteúdo sobre `bg-error` — separado do `onPrimary`, o vermelho tem luminância própria |
+| `bg-danger` + `text-text-onDanger` | Botão destrutivo sólido (inverte por tema, como o `action`) |
+| `text-error` | Cor de **estado** de erro: borda de campo inválido, ponto do Badge, ícone de lixeira. Não carrega texto — reprova AA (3,68:1) |
+| `text-error-onSoft` | O vermelho quando ele **é texto**, calibrado por tema (5,01:1 escuro / 6,47:1 claro) |
 | `text-primary-onSoft` | Acento sobre fundo suave — nunca `text-primary-500` direto, reprova AA no claro |
 | `text-text-link` / `text-text-linkHover` | Links (neutros + sublinhado desde a v0.5.0) |
 

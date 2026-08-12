@@ -66,15 +66,10 @@
   --color-warning: #F59E0B;
   --color-info:    #3B82F6;
 
-  /* Texto sobre o vermelho solido (botao danger). NAO herda --text-on-primary:
-     o danger nao e preenchido com o acento, e com --color-error, que tem
-     luminancia propria. Ate a v0.6.1 ele pegava --text-on-primary emprestado e
-     mudava junto sem querer. O vermelho e invariante entre temas, entao este
-     token tambem e.
-     ATENCAO: #EF4444 x navy da 4,35:1 — abaixo de AA para texto. Branco daria
-     3,76:1, pior. Corrigir de verdade exige escurecer o preenchimento do danger
-     (ex.: #DC2626 com branco = 4,83:1), o que e decisao de cor separada. */
-  --text-on-danger: var(--color-neutral-900);
+  /* --color-error continua sendo a cor de ESTADO de erro (borda de campo
+     invalido, ponto do Badge, barra do Progress). Ele NAO preenche mais o botao
+     destrutivo: para isso existe --danger-solid, calibrado por tema. Ver o
+     comentario la embaixo. */
 
   /* ---------- Typography ---------- */
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -201,6 +196,9 @@
      Trocar o acento em v0.6.0 e deixar este token parado foi o descuido. */
   --text-on-primary:   var(--color-neutral-0);
   --text-on-secondary: var(--color-neutral-900);
+  /* No escuro o preenchimento destrutivo clareia, entao o rotulo escurece.
+     #F87171 x navy = 5,92:1. */
+  --text-on-danger:    var(--color-neutral-900);
   /* Link e texto neutro sublinhado, nao colorido. O acento da marca deixou de
      carregar texto em v0.5.0 — ele passou a significar so estado (foco, selecao,
      aba ativa). Um link colorido voltaria a competir com esse significado. */
@@ -216,6 +214,22 @@
   --action-solid-hover:  var(--color-neutral-100);
   --action-solid-active: var(--color-neutral-300);
   --text-on-action:      var(--color-neutral-900);
+
+  /* ---------- Acao destrutiva (botao solido) ----------
+     Inverte entre os temas pelo mesmo motivo que --action-*, e nao por gosto:
+     nenhum vermelho unico atende os dois criterios nos dois temas ao mesmo
+     tempo. Escurecer para o rotulo branco passar (#DC2626 da 4,83:1) derruba a
+     silhueta do botao contra o navy do modal para 2,87:1, abaixo dos 3:1 que a
+     1.4.11 exige de componente nao-textual — o botao perde a borda.
+     No escuro, entao, o preenchimento clareia e o rotulo escurece, igualzinho
+     ao que o botao de acao primaria ja faz.
+       claro:  #DC2626 + branco -> rotulo 4,83:1 | silhueta 4,83:1
+       escuro: #F87171 + navy   -> rotulo 5,92:1 | silhueta 5,01:1
+     O active do escuro NAO e o #EF4444 (red-500) que a rampa pediria: com navy
+     ele da 4,35:1 e reprova. #EE5A5A e o passo mais fundo que ainda passa. */
+  --danger-solid:        #F87171;
+  --danger-solid-hover:  #FCA5A5;
+  --danger-solid-active: #EE5A5A;
 
   --color-error-soft:   #7F1D1D;
   --color-success-soft: #14532D;
@@ -265,6 +279,9 @@
      ele tambem nao muda. Ver o comentario no bloco escuro. */
   --text-on-primary:   var(--color-neutral-0);
   --text-on-secondary: var(--color-neutral-900);
+  /* No claro o preenchimento destrutivo escurece, entao o rotulo e branco.
+     #DC2626 x branco = 4,83:1. */
+  --text-on-danger:    var(--color-neutral-0);
   --text-link:         var(--text-primary);
   --text-link-hover:   var(--text-secondary);
   --text-on-muted:     var(--color-neutral-700);
@@ -274,6 +291,14 @@
   --action-solid-hover:  var(--color-neutral-800);
   --action-solid-active: var(--color-neutral-950);
   --text-on-action:      var(--color-neutral-0);
+
+  /* ---------- Acao destrutiva (botao solido) ----------
+     Aqui o preenchimento escurece e o rotulo fica branco — o espelho do tema
+     escuro. Ver o comentario no bloco escuro para o porque da inversao.
+       #DC2626 + branco -> rotulo 4,83:1 | silhueta 4,83:1 sobre o card branco */
+  --danger-solid:        #DC2626;
+  --danger-solid-hover:  #B91C1C;
+  --danger-solid-active: #991B1B;
 
   --color-error-soft:   #FEE2E2;
   --color-success-soft: #DCFCE7;

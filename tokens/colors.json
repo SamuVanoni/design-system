@@ -6,7 +6,7 @@
       "dark",
       "light"
     ],
-    "version": "0.6.3"
+    "version": "0.7.0"
   },
   "primary": {
     "50": "#F0F9F8",
@@ -107,6 +107,11 @@
         "solidHover": "#F0F2F5",
         "solidActive": "#C2C8D1"
       },
+      "danger": {
+        "solid": "#F87171",
+        "solidHover": "#FCA5A5",
+        "solidActive": "#EE5A5A"
+      },
       "backdrop": "rgba(0, 0, 0, 0.6)",
       "primaryOnSoft": "#7DCFC1"
     },
@@ -132,7 +137,7 @@
         "inverse": "#F9FAFB",
         "onPrimary": "#FFFFFF",
         "onSecondary": "#17202E",
-        "onDanger": "#17202E",
+        "onDanger": "#FFFFFF",
         "onAction": "#FFFFFF",
         "onMuted": "#353F50",
         "link": "#17202E",
@@ -142,6 +147,11 @@
         "solid": "#17202E",
         "solidHover": "#232D3E",
         "solidActive": "#0D131C"
+      },
+      "danger": {
+        "solid": "#DC2626",
+        "solidHover": "#B91C1C",
+        "solidActive": "#991B1B"
       },
       "backdrop": "rgba(23, 32, 46, 0.5)",
       "primaryOnSoft": "#21695D"

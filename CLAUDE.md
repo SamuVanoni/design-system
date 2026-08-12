@@ -91,6 +91,24 @@ Razão: semânticos mudam sozinhos entre dark/light. Escalares travam a UI em um
 - Primary (sólido neutro): `bg-action text-text-onAction`. **Inverte por tema** — navy `#17202E` no claro, `#E2E5E9` no escuro. Um preenchimento navy sobre fundo navy teria 1,4:1 de separação e o botão sumiria; por isso `--action-*` tem valor próprio em cada tema.
 - Secondary (contorno neutro): `border border-border bg-transparent text-text-primary`.
 - Info (aviso discreto): `bg-surface-muted text-text-onMuted` + ícone `i` em `text-info-onSoft`. Use `<Button variant="info">` — o ícone vem automático.
+- Destrutivo (sólido vermelho): `bg-danger text-text-onDanger`. **Inverte por tema** igual ao `action` — `#DC2626` com rótulo branco no claro, `#F87171` com rótulo navy no escuro. Nenhum vermelho único serve: escurecer para o rótulo branco passar derruba a silhueta do botão contra o navy do modal para 2,87:1. Use `<Button variant="danger">`, nunca `bg-error` na mão.
+
+### Qual variante usar (é uma escolha de papel, não de cor)
+
+| Papel na tela | Variante | Regra |
+|---|---|---|
+| A ação que a pessoa veio fazer | `primary` | **uma por tela ou modal**, sempre a mais à direita |
+| Uma alternativa de verdade | `secondary` | só quando existem duas ações reais lado a lado |
+| Sair sem fazer nada | `ghost` | Cancelar, Voltar, Fechar |
+| Apagar de forma irreversível | `danger` | **sempre dentro de um modal de confirmação** |
+| Aviso clicável | `info` | não é ação — é um aviso que por acaso clica |
+
+O sólido mais à direita é sempre o que confirma. No modal destrutivo ele continua
+sólido e na mesma posição: muda a cor, não o peso. Um "Excluir" em `ghost` perde a
+hierarquia; um "Excluir" em `primary` se disfarça de "Salvar".
+
+Ícone de lixeira em linha de tabela é `ghost` + `text-error` — ele só **abre** o
+modal, não apaga nada. Como é ícone, vale o limite de 3:1 e o `text-error` passa.
 - Sobre `bg-primary-500` use **sempre `text-text-onPrimary`** — nunca um literal (`text-white`, `text-neutral-900`). Desde a v0.6.2 esse token vale branco (4,80:1 sobre o verdigris); enquanto o acento foi o cobre ele valia navy. É exatamente por trocar de valor com o acento que ele existe: quem tinha escrito `text-neutral-900` na mão ficou em 3,41:1 sem perceber.
 - Danger é `text-text-onDanger`, não `onPrimary` — o preenchimento ali é `--color-error`, não o acento.
 

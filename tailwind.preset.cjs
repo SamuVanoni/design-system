@@ -106,6 +106,13 @@ module.exports = {
           hover:   tom('--action-solid-hover'),
           active:  tom('--action-solid-active'),
         },
+        // Acao destrutiva: mesma logica do `action`, e pelo mesmo motivo.
+        // Separado do `error`, que continua sendo a cor de ESTADO de erro.
+        danger: {
+          DEFAULT: tom('--danger-solid'),
+          hover:   tom('--danger-solid-hover'),
+          active:  tom('--danger-solid-active'),
+        },
         error:   tom('--color-error'),
         success: tom('--color-success'),
         warning: tom('--color-warning'),

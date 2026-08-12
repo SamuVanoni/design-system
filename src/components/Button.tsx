@@ -60,8 +60,12 @@ const variants: Record<Variant, string> = {
     'bg-transparent text-text-primary hover:bg-surface-elevated active:bg-surface-overlay ' +
     'focus-visible:ring-primary-500',
   danger:
-    // onDanger, nao onPrimary: o preenchimento aqui e o vermelho, nao o acento.
-    'bg-error text-text-onDanger hover:opacity-90 active:opacity-80 ' +
+    // `bg-danger`, nao `bg-error`: o error e a cor de ESTADO (borda de campo
+    // invalido, ponto do Badge) e tem um valor so; o preenchimento destrutivo
+    // inverte por tema para nao perder nem o rotulo nem a silhueta.
+    // Tambem nao usa mais hover:opacity — mexer na opacidade do botao inteiro
+    // desbota o rotulo junto e derruba o contraste no hover.
+    'bg-danger text-text-onDanger hover:bg-danger-hover active:bg-danger-active ' +
     'focus-visible:ring-error',
 };
 
