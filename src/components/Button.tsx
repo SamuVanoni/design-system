@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { ButtonHTMLAttributes, ReactNode, forwardRef } from 'react';
 import { Loader2, Info } from 'lucide-react';
 import { cn } from '../lib/cn';
 
@@ -17,8 +17,18 @@ import { cn } from '../lib/cn';
  * Tamanhos: sm | md | lg
  * Estados nativos: hover, active, focus-visible, disabled + loading.
  *
+ * ENCAMINHA REF (desde v0.7.1). É o que permite usá-lo como gatilho de
+ * `Tooltip`, `Dropdown`, `Popover` e `Select` do Radix, que posicionam o painel
+ * a partir do nó real e por isso exigem ref no filho de `asChild`. Sem isso o
+ * consumidor era obrigado a copiar a receita da variante num `<button>` na mão —
+ * cópia que desandava calada assim que a variante mudava.
+ *
  * @example
  * <Button variant="info" size="sm">Este relatório atualiza a cada 24h</Button>
+ * @example
+ * <Tooltip content="Mostrar CPF">
+ *   <Button variant="secondary" aria-label="Mostrar CPF"><Eye /></Button>
+ * </Tooltip>
  */
 
 type Variant = 'primary' | 'secondary' | 'info' | 'ghost' | 'danger';
@@ -69,18 +79,21 @@ const variants: Record<Variant, string> = {
     'focus-visible:ring-error',
 };
 
-export function Button({
-  variant = 'primary',
-  size = 'md',
-  loading = false,
-  leftIcon,
-  rightIcon,
-  fullWidth = false,
-  className,
-  children,
-  disabled,
-  ...rest
-}: ButtonProps) {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
+  {
+    variant = 'primary',
+    size = 'md',
+    loading = false,
+    leftIcon,
+    rightIcon,
+    fullWidth = false,
+    className,
+    children,
+    disabled,
+    ...rest
+  },
+  ref,
+) {
   // `info` traz o ícone de informação por padrão — é o que dá a leitura de "aviso".
   const icon =
     leftIcon === undefined && variant === 'info'
@@ -89,6 +102,7 @@ export function Button({
 
   return (
     <button
+      ref={ref}
       className={cn(base, sizes[size], variants[variant], fullWidth && 'w-full', className)}
       disabled={disabled || loading}
       aria-busy={loading || undefined}
@@ -99,4 +113,4 @@ export function Button({
       {!loading && rightIcon}
     </button>
   );
-}
+});

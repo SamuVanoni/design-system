@@ -109,6 +109,15 @@ hierarquia; um "Excluir" em `primary` se disfarça de "Salvar".
 
 Ícone de lixeira em linha de tabela é `ghost` + `text-error` — ele só **abre** o
 modal, não apaga nada. Como é ícone, vale o limite de 3:1 e o `text-error` passa.
+
+**Nunca copie a receita de uma variante num `<button>` na mão.** Desde a v0.7.1 o
+`Button` encaminha ref, então ele serve de gatilho para `Tooltip`, `Dropdown`,
+`Popover` e `Select` — que usam `asChild` e precisam do nó real para posicionar o
+painel. Era essa a única razão pela qual valia a pena copiar, e ela acabou. Cópia
+de variante desanda calada no dia em que a variante muda.
+
+Botão só-ícone é `<Button variant="…" className="h-10 w-10 p-0" aria-label="…">`.
+O `p-0` vence o `px-4` do tamanho porque o `cn` resolve conflito (v0.6.3).
 - Sobre `bg-primary-500` use **sempre `text-text-onPrimary`** — nunca um literal (`text-white`, `text-neutral-900`). Desde a v0.6.2 esse token vale branco (4,80:1 sobre o verdigris); enquanto o acento foi o cobre ele valia navy. É exatamente por trocar de valor com o acento que ele existe: quem tinha escrito `text-neutral-900` na mão ficou em 3,41:1 sem perceber.
 - Danger é `text-text-onDanger`, não `onPrimary` — o preenchimento ali é `--color-error`, não o acento.
 
