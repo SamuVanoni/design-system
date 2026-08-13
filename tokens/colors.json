@@ -128,7 +128,7 @@
         "elevated": "#FFFFFF",
         "overlay": "#FFFFFF",
         "muted": "rgba(23, 32, 46, 0.05)",
-        "mutedHover": "rgba(23, 32, 46, 0.09)"
+        "mutedHover": "rgba(23, 32, 46, 0.12)"
       },
       "border": {
         "subtle": "#F0F2F5",

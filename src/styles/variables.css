@@ -290,7 +290,13 @@
   --surface-elevated: var(--color-neutral-0);
   --surface-overlay:  var(--color-neutral-0);
   --surface-muted:       rgba(23, 32, 46, 0.05);
-  --surface-muted-hover: rgba(23, 32, 46, 0.09);
+  /* 12%, nao 9% (v0.7.6). Tinta escura sobre fundo claro rende menos degrau
+     percebido que tinta clara sobre fundo escuro na mesma opacidade: a 9% o
+     hover do tema claro dava 1,19:1 (ΔL* 7,1) contra 1,37:1 (ΔL* 9,2) do
+     escuro — o mesmo gesto parecia mais fraco de um lado. A 12% empata em
+     ΔL* 9,8. O --surface-muted continua em 5%: ele e fundo de repouso, e
+     subir junto engrossaria chip, trilho e botao `info` sem motivo. */
+  --surface-muted-hover: rgba(23, 32, 46, 0.12);
 
   --border-subtle:  var(--color-neutral-100);
   --border-default: var(--color-neutral-200);
