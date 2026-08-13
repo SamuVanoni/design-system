@@ -270,6 +270,15 @@
   --fb-warning-graphic: var(--color-warning);       /* trilho 5,34:1 */
   --fb-info-graphic:    var(--color-info);          /* trilho 3,12:1 */
 
+  /* Conteudo POR CIMA de um preenchimento -graphic. E o par que faltava: sem
+     ele um selo solido (circulo do EmptyState com o "+" no meio) nao tinha
+     saida — manter o primary-500 deixava a silhueta em 2,88:1 contra o card
+     escuro, e subir pro -graphic derrubava o "+" branco para 2,52:1. Como o
+     preenchimento inverte por tema, o conteudo inverte junto, igualzinho ao
+     --text-on-action e ao --text-on-danger.
+     Aqui o preenchimento clareia (#40B5A2), entao o conteudo escurece: 6,51:1. */
+  --text-on-graphic:    var(--color-neutral-900);
+
   --backdrop: rgba(0, 0, 0, 0.6);
 
   /* Eleva-se com LUZ, nao com sombra. Sombra preta sobre fundo quase preto e
@@ -359,6 +368,10 @@
   --fb-success-graphic: #15803D;                    /* trilho 4,55:1 */
   --fb-warning-graphic: #B45309;                    /* trilho 4,56:1 */
   --fb-info-graphic:    #2563EB;                    /* trilho 4,69:1 */
+
+  /* No claro o preenchimento escurece (#2A7F71), entao o conteudo e branco:
+     4,80:1. Ver o comentario no bloco escuro. */
+  --text-on-graphic:    var(--color-neutral-0);
 
   --backdrop: rgba(23, 32, 46, 0.5);
 

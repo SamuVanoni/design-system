@@ -96,6 +96,9 @@ module.exports = {
           onDanger:     tom('--text-on-danger'),
           onMuted:      tom('--text-on-muted'),
           onAction:     tom('--text-on-action'),
+          // Conteudo sobre um preenchimento -graphic (inverte por tema, como o
+          // onAction e o onDanger). Ver --text-on-graphic em variables.css.
+          onGraphic:    tom('--text-on-graphic'),
           link:         tom('--text-link'),
           linkHover:    tom('--text-link-hover'),
         },

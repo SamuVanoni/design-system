@@ -100,7 +100,8 @@
         "onAction": "#17202E",
         "onMuted": "#DEE2E7",
         "link": "#E2E5E9",
-        "linkHover": "#B8BDC7"
+        "linkHover": "#B8BDC7",
+        "onGraphic": "#17202E"
       },
       "action": {
         "solid": "#E2E5E9",
@@ -148,7 +149,8 @@
         "onAction": "#FFFFFF",
         "onMuted": "#353F50",
         "link": "#17202E",
-        "linkHover": "#353F50"
+        "linkHover": "#353F50",
+        "onGraphic": "#FFFFFF"
       },
       "action": {
         "solid": "#17202E",

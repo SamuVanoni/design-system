@@ -253,6 +253,7 @@ Prefira **tokens semânticos** em vez de escalas cruas — assim mudar um tom af
 | `bg-danger` + `text-text-onDanger` | Botão destrutivo sólido (inverte por tema, como o `action`) |
 | `text-error` / `-success` / `-warning` / `-info` | Cor de **estado**: borda de campo inválido, ponto do Badge, ícone de lixeira. **Nunca carrega texto nem desenha** — valor único para os dois temas, reprova AA em pelo menos um |
 | `text-*-onSoft` | A mesma cor quando ela **é texto**, calibrada por tema. Vale sobre qualquer superfície, não só a `-soft` |
+| `text-text-onGraphic` | Conteúdo **por cima** de um preenchimento `-graphic` (v0.7.7). Inverte por tema, como o `onAction` e o `onDanger` — é o par sem o qual um selo sólido não fecha os dois critérios |
 | `bg-*-graphic` / `text-*-graphic` | A mesma cor quando ela **desenha** — barra, anel, traço (v0.7.4). Alvo 1.4.11 (≥ 3:1) contra o **trilho**, não contra o card. Inclui `primary-graphic` |
 | `text-primary-onSoft` | Acento sobre fundo suave — nunca `text-primary-500` direto, reprova AA no claro |
 | `text-text-link` / `text-text-linkHover` | Links (neutros + sublinhado desde a v0.5.0) |

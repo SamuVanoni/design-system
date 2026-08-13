@@ -141,6 +141,13 @@ Resumo dos três contratos da mesma cor: **base** = estado (borda de campo invá
 Usam `-graphic` hoje: `ProgressBar`, `CircularProgress`, o ponto de status do `Avatar`, o
 marcador do `Badge` e os desenhos do `EmptyState` (v0.7.5).
 
+**Conteúdo por cima de um preenchimento `-graphic` usa `text-text-onGraphic`** (v0.7.7).
+Ele fecha o par: como o preenchimento inverte por tema, o conteúdo inverte junto — igual
+ao `onAction` e ao `onDanger`. Sem ele o selo sólido do `EmptyState` não tinha saída:
+manter o `primary-500` deixava a silhueta em 2,88:1 contra o card escuro, e trocar só o
+preenchimento derrubava o "+" branco para 2,52:1. Com o par: silhueta 4,80 / 5,51 e
+conteúdo 4,80 / 6,51.
+
 **Quando o desenho fica sobre um fundo de feedback**, o vizinho deixa de ser o card e vira
 o próprio fundo — e aí o `-soft` opaco atrapalha: no escuro ele é fundo demais (o traço do
 `ArtError` travava em 2,66:1 mesmo com o `-graphic`). Use a tinta translúcida

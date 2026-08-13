@@ -67,8 +67,12 @@ function ArtEmpty() {
       <circle cx="74" cy="53" r="3" className="fill-border-strong" />
       <rect x="66" y="76" width="68" height="7" rx="3.5" className="fill-border" />
       <rect x="66" y="90" width="44" height="7" rx="3.5" className="fill-border" />
-      <circle cx="148" cy="42" r="14" className="fill-primary-500" />
-      <path d="M148 36v12M142 42h12" className="stroke-text-onPrimary" strokeWidth="2.5" strokeLinecap="round" />
+      {/* Selo solido: preenchimento -graphic + conteudo -onGraphic, os dois
+          invertendo por tema. O primary-500 dava 2,88:1 de silhueta contra o
+          card escuro; so trocar o preenchimento derrubaria o "+" branco para
+          2,52:1. Ver --text-on-graphic em variables.css. */}
+      <circle cx="148" cy="42" r="14" className="fill-primary-graphic" />
+      <path d="M148 36v12M142 42h12" className="stroke-text-onGraphic" strokeWidth="2.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -98,8 +102,9 @@ function ArtFiles() {
       <rect x="88" y="48" width="42" height="6" rx="3" className="fill-border" />
       <rect x="88" y="62" width="42" height="6" rx="3" className="fill-border" />
       <rect x="88" y="76" width="28" height="6" rx="3" className="fill-border" />
-      <circle cx="140" cy="98" r="15" className="fill-primary-500" />
-      <path d="M140 91v14M133 98h14" className="stroke-text-onPrimary" strokeWidth="2.5" strokeLinecap="round" />
+      {/* Mesmo selo do ArtEmpty, mesma razao. */}
+      <circle cx="140" cy="98" r="15" className="fill-primary-graphic" />
+      <path d="M140 91v14M133 98h14" className="stroke-text-onGraphic" strokeWidth="2.5" strokeLinecap="round" />
     </svg>
   );
 }
