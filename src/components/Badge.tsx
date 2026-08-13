@@ -45,13 +45,20 @@ const COM_MARCADOR: ReadonlySet<Variant> = new Set<Variant>([
   'success', 'info', 'warning', 'error',
 ]);
 
+/**
+ * -graphic, nao a cor base. O marcador e um circulo de 8px, e no modo `dot` ele
+ * fica sozinho na tela — nao ha rotulo do lado para socorrer, entao carrega o
+ * significado inteiro e vale a 1.4.11 (>= 3:1). Reprovavam: success 2,28:1 e
+ * warning 2,15:1 no claro, e o `primary` 2,88:1 no escuro (verdigris 500
+ * contra o card navy). Ver --fb-*-graphic em variables.css.
+ */
 const dotColors: Record<Variant, string> = {
   default: 'bg-text-tertiary',
-  primary: 'bg-primary-500',
-  success: 'bg-success',
-  warning: 'bg-warning',
-  error:   'bg-error',
-  info:    'bg-info',
+  primary: 'bg-primary-graphic',
+  success: 'bg-success-graphic',
+  warning: 'bg-warning-graphic',
+  error:   'bg-error-graphic',
+  info:    'bg-info-graphic',
 };
 
 export function Badge({

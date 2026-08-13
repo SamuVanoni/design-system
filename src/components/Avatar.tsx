@@ -56,11 +56,21 @@ const statusSizes: Record<Size, string> = {
   xl: 'h-4   w-4',
 };
 
+/**
+ * -graphic, nao a cor base: o ponto e um circulo de 6 a 16px sobre o card, e
+ * vale a 1.4.11 (>= 3:1). No tema claro o verde base dava 2,28:1 e o ambar
+ * 2,15:1 — o ponto praticamente sumia justo nos dois estados que mais
+ * importam. Ver --fb-*-graphic em variables.css.
+ *
+ * `offline` saiu do --text-disabled (2,80:1 claro / 2,84:1 escuro) para o
+ * --text-tertiary (4,87 / 4,94). Ele continua sendo o cinza discreto do par,
+ * so que agora visivel: "apagado" e uma leitura de cor, nao de ausencia.
+ */
 const statusColors: Record<Status, string> = {
-  online:  'bg-success',
-  offline: 'bg-text-disabled',
-  busy:    'bg-error',
-  away:    'bg-warning',
+  online:  'bg-success-graphic',
+  offline: 'bg-text-tertiary',
+  busy:    'bg-error-graphic',
+  away:    'bg-warning-graphic',
 };
 
 const statusLabels: Record<Status, string> = {

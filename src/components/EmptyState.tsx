@@ -81,8 +81,10 @@ function ArtSearch() {
       <rect x="54" y="50" width="54" height="6" rx="3" className="fill-border" />
       <rect x="54" y="64" width="38" height="6" rx="3" className="fill-border" />
       <rect x="54" y="78" width="46" height="6" rx="3" className="fill-border" />
-      <circle cx="132" cy="74" r="26" className="fill-surface-base stroke-primary-500" strokeWidth="4" />
-      <path d="M151 93l14 14" className="stroke-primary-500" strokeWidth="6" strokeLinecap="round" />
+      {/* -graphic: o cabo da lupa cai direto sobre o card, e o verdigris 500
+          dava 2,88:1 contra o navy do tema escuro. */}
+      <circle cx="132" cy="74" r="26" className="fill-surface-base stroke-primary-graphic" strokeWidth="4" />
+      <path d="M151 93l14 14" className="stroke-primary-graphic" strokeWidth="6" strokeLinecap="round" />
     </svg>
   );
 }
@@ -110,9 +112,13 @@ function ArtError() {
       <path d="M46 58h108" className="stroke-border" strokeWidth="2" />
       <circle cx="57" cy="48" r="3" className="fill-border-strong" />
       <circle cx="68" cy="48" r="3" className="fill-border-strong" />
-      <circle cx="100" cy="82" r="20" className="fill-error-soft stroke-error" strokeWidth="2" />
-      <path d="M100 72v12" className="stroke-error" strokeWidth="3" strokeLinecap="round" />
-      <circle cx="100" cy="91" r="2" className="fill-error" />
+      {/* Preenchimento translucido no lugar do -soft opaco, como o README ja
+          recomenda: o -soft escuro (#7F1D1D) e vermelho fundo demais, e o
+          traco por cima dele travava em 2,66:1 mesmo com o -graphic. Sobre a
+          tinta /16 o mesmo traco da 3,91:1 no claro e 3,18:1 no escuro. */}
+      <circle cx="100" cy="82" r="20" className="fill-error/16 stroke-error-graphic" strokeWidth="2" />
+      <path d="M100 72v12" className="stroke-error-graphic" strokeWidth="3" strokeLinecap="round" />
+      <circle cx="100" cy="91" r="2" className="fill-error-graphic" />
     </svg>
   );
 }
@@ -124,8 +130,10 @@ function ArtSuccess() {
       <rect x="52" y="36" width="96" height="72" rx="8" className="fill-surface-elevated stroke-border" strokeWidth="2" />
       <rect x="68" y="54" width="42" height="6" rx="3" className="fill-border" />
       <rect x="68" y="68" width="30" height="6" rx="3" className="fill-border" />
-      <circle cx="100" cy="92" r="22" className="fill-success-soft stroke-success" strokeWidth="2" />
-      <path d="M90 92l7 7 14-14" className="stroke-success" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+      {/* Mesma troca do ArtError, pelo mesmo motivo. Aqui o traco sobre a
+          tinta /16 da 4,38:1 no claro e 4,60:1 no escuro. */}
+      <circle cx="100" cy="92" r="22" className="fill-success/16 stroke-success-graphic" strokeWidth="2" />
+      <path d="M90 92l7 7 14-14" className="stroke-success-graphic" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }

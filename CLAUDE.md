@@ -135,8 +135,16 @@ sobe do 500 para o 400 — era o tom padrão do `CircularProgress` e o anel sumi
 próprio trilho. No claro não existe passo intermediário: o green-600 (`#16A34A`) para em
 2,99:1, um décimo abaixo do limite, então o valor gráfico coincide com o `-text`.
 
-Resumo dos três contratos da mesma cor: **base** = estado (borda, ponto), **`-onSoft`** =
-texto, **`-graphic`** = desenho.
+Resumo dos três contratos da mesma cor: **base** = estado (borda de campo inválido),
+**`-onSoft`** = texto, **`-graphic`** = desenho.
+
+Usam `-graphic` hoje: `ProgressBar`, `CircularProgress`, o ponto de status do `Avatar`, o
+marcador do `Badge` e os desenhos do `EmptyState` (v0.7.5).
+
+**Quando o desenho fica sobre um fundo de feedback**, o vizinho deixa de ser o card e vira
+o próprio fundo — e aí o `-soft` opaco atrapalha: no escuro ele é fundo demais (o traço do
+`ArtError` travava em 2,66:1 mesmo com o `-graphic`). Use a tinta translúcida
+(`fill-error/16`), que é o que o README já recomendava por outro motivo.
 
 ### Botões
 
