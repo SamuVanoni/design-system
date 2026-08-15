@@ -243,6 +243,7 @@ Múltiplos de 4/8: `p-1 p-2 p-3 p-4 p-5 p-6 p-8 p-10 p-12 p-16 p-20 p-24`. **Nun
 - **Progresso com fim conhecido**: `ProgressBar` (linear) ou `CircularProgress` (compacto/dashboard). Se o fim é desconhecido e a espera é curta, `Spinner`; se está carregando o layout, `Skeleton`.
 - **Seções colapsáveis / FAQ**: `Accordion`. `type="single"` para um por vez, `"multiple"` para vários, `separated` para cada item como card.
 - **Fluxo multi-passo** (onboarding, checkout): `Stepper`. Só passe `onStepClick` se voltar for permitido.
+- **Topo de tela**: `PageHeader` (título + descrição + fila de ações). Não escreva o cabeçalho à mão: é o bloco mais copiado de qualquer app e a cópia derrapa sempre no mesmo ponto — descrição longa ou muitos botões empurram o grupo para uma segunda linha, **colado na esquerda**, longe de onde o olho procura a ação primária. Se faltar algo, ajuste o componente, não a tela.
 - **Localização na hierarquia**: `Breadcrumbs` — o último item é a página atual e nunca é link.
 - **Valor numérico em faixa**: `Slider` (o valor é sempre `number[]`; dois valores = range). Para número exato digitado, `Input type="number"`.
 - **Envio de arquivos**: `FileUpload` dentro de `<Field>`. Ele só coleta e valida — o upload em si fica na sua app.

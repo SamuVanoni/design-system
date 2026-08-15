@@ -18,6 +18,7 @@ export { TimePicker } from './TimePicker';
 export { Slider } from './Slider';
 export { FileUpload, formatBytes } from './FileUpload';
 export { Card } from './Card';
+export { PageHeader } from './PageHeader';
 export { Badge } from './Badge';
 export { Avatar, AvatarGroup } from './Avatar';
 export type { AvatarProps } from './Avatar';

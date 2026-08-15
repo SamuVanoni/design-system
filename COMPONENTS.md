@@ -50,6 +50,7 @@ Todos os componentes se importam de `@/components`. Detalhes em `src/components/
 | Componente | Props principais | Arquivo |
 |---|---|---|
 | `Card` | Sub: `Card.Header` (title, description, action), `Card.Body`, `Card.Footer`. Root: `interactive` | `Card.tsx` |
+| `PageHeader` | `title`, `description`, `actions`. Topo de tela: o `<h1>` da página + a fila de botões ancorada na direita. As ações nunca voltam para a esquerda ao quebrar de linha, e a descrição é limitada a `max-w-prose` para não disputar espaço com elas | `PageHeader.tsx` |
 | `Modal` | `open`, `onOpenChange`, `title`, `description`, `size` (sm/md/lg). Sub: `Modal.Footer`. Trava em `max-h-[90vh]`: cabeçalho fixo, corpo rolável (classe `modal-body`), footer sticky | `Modal.tsx` |
 | `Dropdown` | `trigger`, `align`. Sub: `Dropdown.Item` (com `tone` danger), `Dropdown.CheckboxItem`, `Dropdown.Label`, `Dropdown.Separator` | `Dropdown.tsx` |
 | `Tabs` | `defaultValue` ou `value`+`onValueChange`. Sub: `Tabs.List`, `Tabs.Trigger`, `Tabs.Content` | `Tabs.tsx` |
