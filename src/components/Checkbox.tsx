@@ -1,4 +1,4 @@
-import { ReactNode, forwardRef } from 'react';
+import { ReactNode, forwardRef, useId } from 'react';
 import * as RC from '@radix-ui/react-checkbox';
 import { Check, Minus } from 'lucide-react';
 import { cn } from '../lib/cn';
@@ -23,7 +23,12 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(function Ch
   ref,
 ) {
   const field = useField();
-  const finalId = id ?? field?.id;
+  // O autoId fecha o caso "Checkbox com label, sem id e fora de <Field>": sem ele o
+  // <label> saía com htmlFor={undefined}, clicar no texto não marcava nada (apesar do
+  // cursor-pointer prometendo que sim) e o controle ficava sem nome acessível
+  // (WCAG 4.1.2). Mesmo padrão de Input, Field e FileUpload.
+  const autoId = useId();
+  const finalId = id ?? field?.id ?? autoId;
   const isDisabled = disabled ?? field?.disabled;
 
   const box = (
