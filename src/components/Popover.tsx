@@ -72,26 +72,44 @@ interface PopoverHeaderProps {
   title: ReactNode;
   description?: ReactNode;
   onClose?: boolean;   // se true, mostra o botão de fechar (usa Popover.Close)
+  /**
+   * Ação que pertence ao painel inteiro, alinhada à direita do título — "marcar
+   * todas como lidas", "limpar filtros", "atualizar".
+   *
+   * Existe (v0.9.0) porque sem ela a ação caía na primeira linha do `Body`, e
+   * uma barra só para ela: some quando não há o que marcar, reaparece quando há,
+   * e o conteúdo pula. Aqui a linha do cabeçalho já existe sempre, então a ação
+   * aparece e some sem mexer no que está embaixo.
+   *
+   * Fica ANTES do `onClose` na ordem de leitura e de foco: fechar é a última
+   * saída do painel, não a primeira coisa que o teclado encontra.
+   */
+  actions?: ReactNode;
 }
 
-function PopoverHeader({ title, description, onClose }: PopoverHeaderProps) {
+function PopoverHeader({ title, description, onClose, actions }: PopoverHeaderProps) {
   return (
     <div className="flex items-start justify-between gap-3 border-b border-border-subtle px-3 py-2">
       <div className="min-w-0">
         <p className="text-sm font-medium text-text-primary truncate">{title}</p>
         {description && <p className="mt-0.5 text-caption text-text-tertiary">{description}</p>}
       </div>
-      {onClose && (
-        <RP.Close
-          aria-label="Fechar"
-          className={cn(
-            'inline-flex h-6 w-6 items-center justify-center rounded text-text-tertiary',
-            'hover:bg-surface-elevated hover:text-text-primary transition-colors',
-            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500',
+      {(actions || onClose) && (
+        <div className="flex shrink-0 items-center gap-1">
+          {actions}
+          {onClose && (
+            <RP.Close
+              aria-label="Fechar"
+              className={cn(
+                'inline-flex h-6 w-6 items-center justify-center rounded text-text-tertiary',
+                'hover:bg-surface-elevated hover:text-text-primary transition-colors',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500',
+              )}
+            >
+              <X className="h-3.5 w-3.5" />
+            </RP.Close>
           )}
-        >
-          <X className="h-3.5 w-3.5" />
-        </RP.Close>
+        </div>
       )}
     </div>
   );

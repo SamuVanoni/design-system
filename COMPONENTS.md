@@ -15,7 +15,7 @@ Todos os componentes se importam de `@/components`. Detalhes em `src/components/
 | Componente | Props principais | Arquivo |
 |---|---|---|
 | `Button` | `variant` (primary/secondary/**info**/ghost/**danger**), `size` (sm/md/lg), `loading`, `leftIcon`, `rightIcon`, `fullWidth`. `primary` = sólido neutro que **inverte por tema** (navy no claro, claro no escuro) — não usa o acento da marca. `secondary` = contorno neutro. `info` = aviso discreto: fundo cinza translúcido + ícone "i" azul automático. `danger` = vermelho sólido que **também inverte por tema** (`#DC2626` + rótulo branco no claro, `#F87171` + rótulo navy no escuro), só para ação destrutiva e sempre dentro de um modal de confirmação. **Encaminha ref** desde a v0.7.1 — serve de gatilho para `Tooltip`, `Dropdown`, `Popover` | `Button.tsx` |
-| `Badge` | `variant` (default/primary/success/warning/error/info), `count`, `max`, `dot`, `icon`. **Cor por severidade**: só `error` e `warning` têm cápsula colorida; `success` e `info` são cápsula neutra + marcador. `dot` = bolinha sozinha, sem cápsula | `Badge.tsx` |
+| `Badge` | `variant` (default/primary/success/warning/error/info), `count`, `max`, `dot`, `solid`, `icon`. **Cor por severidade**: só `error` e `warning` têm cápsula colorida; `success` e `info` são cápsula neutra + marcador. `dot` = bolinha sozinha, sem cápsula. `solid` = cápsula PREENCHIDA (v0.9.0), para contador grudado em ícone (sino, aba); com `count` vira círculo de 20px | `Badge.tsx` |
 | `Label` | `htmlFor`, `required`, `disabled` | `Label.tsx` |
 | `HelperText` | `tone` (default/error/success) | `HelperText.tsx` |
 | `Skeleton` | `width`, `height`, `circle`, `size`, `rounded`, `static` | `Skeleton.tsx` |
@@ -54,7 +54,7 @@ Todos os componentes se importam de `@/components`. Detalhes em `src/components/
 | `Modal` | `open`, `onOpenChange`, `title`, `description`, `size` (sm/md/lg). Sub: `Modal.Footer`. Trava em `max-h-[90vh]`: cabeçalho fixo, corpo rolável (classe `modal-body`), footer sticky | `Modal.tsx` |
 | `Dropdown` | `trigger`, `align`. Sub: `Dropdown.Item` (com `tone` danger), `Dropdown.CheckboxItem`, `Dropdown.Label`, `Dropdown.Separator` | `Dropdown.tsx` |
 | `Tabs` | `defaultValue` ou `value`+`onValueChange`. Sub: `Tabs.List`, `Tabs.Trigger`, `Tabs.Content` | `Tabs.tsx` |
-| `Popover` | `trigger`, `side`, `align`, `size`, `showArrow`. Sub: `Popover.Header` (com `onClose`), `Popover.Body`, `Popover.Close` | `Popover.tsx` |
+| `Popover` | `trigger`, `side`, `align`, `size`, `showArrow`. Sub: `Popover.Header` (com `onClose` e `actions` — ação do painel à direita do título, v0.9.0), `Popover.Body`, `Popover.Close` | `Popover.tsx` |
 | `Tooltip` | `content`, `side`, `align`, `delayDuration`. Trigger via children (precisa aceitar ref). | `Tooltip.tsx` |
 | `Accordion` | `type` (single/multiple), `collapsible`, `separated`. Sub: `Accordion.Item` (`value`, `title`, `description`, `icon`, `meta`, `disabled`) | `Accordion.tsx` |
 | `Breadcrumbs` | `items: Crumb[]` (`label`, `href?`, `onClick?`, `icon?`), `maxItems` (default 4, `0` desliga o colapso), `separator` | `Breadcrumbs.tsx` |

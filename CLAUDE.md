@@ -139,7 +139,8 @@ Resumo dos três contratos da mesma cor: **base** = estado (borda de campo invá
 **`-onSoft`** = texto, **`-graphic`** = desenho.
 
 Usam `-graphic` hoje: `ProgressBar`, `CircularProgress`, o ponto de status do `Avatar`, o
-marcador do `Badge` e os desenhos do `EmptyState` (v0.7.5).
+marcador e o preenchimento `solid` do `Badge` e os desenhos do `EmptyState`
+(v0.7.5).
 
 **Conteúdo por cima de um preenchimento `-graphic` usa `text-text-onGraphic`** (v0.7.7).
 Ele fecha o par: como o preenchimento inverte por tema, o conteúdo inverte junto — igual
