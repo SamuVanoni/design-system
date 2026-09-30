@@ -1,8 +1,46 @@
-# Design System — SaaS B2B (Fase 8)
+# Design System — SaaS B2B
 
 Design system minimalista para aplicações web corporativas B2B. Suporta **dark mode** (padrão) e **light mode**, com toggle persistido em `localStorage`. Distribuído como **CSS Variables + Tailwind config**, permitindo troca de tokens sem rebuild.
 
-Cobertura atual: **Foundations** (cores, tipografia, espaçamento, temas) + **Átomos** (Button, Input, Label, HelperText, Badge) + **Formulários** (Field, Textarea, Checkbox, Radio, Switch, Select, Combobox, MultiCombobox, DatePicker, DateRangePicker, TimePicker) + **Moleculares** (Card, Modal, Dropdown, Tabs) + **Feedback/Overlays** (Toast, Tooltip, Popover, CommandPalette) + **Dados** (Table, DataTable, Pagination) + **Loading** (Skeleton, Spinner, SpinnerOverlay).
+Cobertura atual: **Foundations** (cores, tipografia, espaçamento, temas) + **Átomos** (Button, Input, Label, HelperText, Badge) + **Formulários** (Field, Textarea, Checkbox, Radio, Switch, Select, Combobox, MultiCombobox, DatePicker, DateRangePicker, TimePicker, Slider, FileUpload) + **Moleculares** (Card, Modal, Dropdown, Tabs, Accordion) + **Navegação** (Breadcrumbs, Stepper) + **Feedback/Overlays** (Toast, Tooltip, Popover, CommandPalette, EmptyState) + **Dados** (Table, DataTable, Pagination) + **Identidade** (Avatar, AvatarGroup) + **Loading** (Skeleton, Spinner, SpinnerOverlay, ProgressBar, CircularProgress).
+
+## Preview
+
+O mesmo conjunto de componentes nos dois temas — a troca é feita pelo botão no topo, e cada cor vem de um token semântico, não de um valor cravado no componente.
+
+| `data-theme="dark"` (padrão) | `data-theme="light"` |
+|---|---|
+| ![Preview do design system no tema escuro](docs/preview-dark.jpg) | ![Preview do design system no tema claro](docs/preview-light.jpg) |
+
+Para explorar interativamente, veja [Rodando localmente](#rodando-localmente).
+
+---
+
+## Rodando localmente
+
+```bash
+git clone https://github.com/SamuVanoni/design-system.git
+cd design-system
+npm install
+npm run dev
+```
+
+Abre o app de preview (`src/examples/App.tsx`) em `http://localhost:5173`, com todos os componentes interativos e o toggle de tema no canto superior direito.
+
+> ⚠️ **O preview usa Tailwind 3 de propósito, igual aos SaaS que consomem o pacote.**
+> O tema mora em `tailwind.preset.cjs`, um preset no formato v3, e ele é carregado pelo
+> PostCSS (`postcss.config.cjs`). Com o plugin do Tailwind 4 o preset era ignorado **em
+> silêncio**: as utilidades de layout continuavam funcionando, porque são nativas da v4, e
+> toda utilidade de cor do tema saía transparente — a `ProgressBar` renderizava sem trilho
+> e sem barra. Não havia erro no console. Se um dia o preview migrar para a v4, o tema
+> precisa migrar junto, senão ele deixa de provar o que o consumidor vê.
+
+Outros scripts:
+
+| Comando | O que faz |
+|---|---|
+| `npm run dev` | app de preview (Vite) |
+| `npm run build` | build da biblioteca → `dist/index.mjs` + tipos |
 
 ---
 

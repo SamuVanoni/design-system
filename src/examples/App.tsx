@@ -123,9 +123,9 @@ function NewComponents() {
       <header className="sticky top-0 z-40 border-b border-border bg-surface-base/90 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center gap-4 px-6 py-4">
           <div>
-            <p className="font-semibold">Novos componentes</p>
+            <p className="font-semibold">Design System — preview</p>
             <p className="text-caption text-text-tertiary">
-              8 adições para validação · tema {theme}
+              componentes interativos · tema {theme}
             </p>
           </div>
           <div className="ml-auto">
